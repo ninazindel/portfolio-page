@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#introduction">INTRODUCTION</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#goals">GOALS</a>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="section">
+        <img src="images/portfolio image.png" alt="Photo of Nina" class="profile-photo">
+        <h1>ABOUT ME</h1>
+        <p id="typing-text"></p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h1>SKILLS</h1>
+        <!-- Tabs for categories -->
+        <div class="tabs">
+            <button class="tab" onclick="showWordCloud('all')">All</button>
+            <button class="tab" onclick="showWordCloud('technical')">Technical</button>
+            <button class="tab" onclick="showWordCloud('interpersonal')">Interpersonal</button>
+        </div>
+        <!-- Canvas for the word cloud -->
+        <canvas id="word-map" width="1300" height="500"></canvas>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="section">
+        <h1>GOALS</h1>
+        <p>List all the goals</p>
+    </section>
+
+    <!-- Include Wordcloud.js before script.js -->
+    <script src="js/wordcloud2.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,123 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #000000; /* Black background for the entire page */
+    color: white; /* White text for contrast */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2e2e2e; /* Dark Gray for the navbar */
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+.navbar a:hover {
+    color: #00bcd4; /* Light Blue */
+}
+
+/* Section Styles */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark Gray for sections */
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin: 20px; /* Space between sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Tabs Styling */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.tab {
+    background-color: #2e2e2e; /* Dark Gray for tabs */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.tab:hover {
+    background-color: #444; /* Slightly lighter gray on hover */
+}
+.tab:focus {
+    outline: none;
+}
+
+/* Word Cloud Styling */
+#word-map {
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    background-color: #2e2e2e; /* Dark Gray for the word cloud background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+    width: 100%; /* Use 100% of the parent container's width */
+    max-width: 500px; /* Do not exceed 300px */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center the image */
+}
+
+}
+.profile-photo:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* About Me Heading Styling */
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px; /* Space between heading and paragraph */
+    color: white; /* Ensure headings are visible on dark backgrounds */
+}
+
+/* Paragraph Styling */
+p {
+    max-width: 600px; /* Limit paragraph width for better readability */
+    line-height: 1.6; /* Improve text spacing */
+    color: #dcdcdc; /* Light Gray for text contrast */
+}
+
+/* Define the zoom-in animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5); /* Start smaller */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: scale(1); /* End at normal size */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    #word-map {
+        width: 90%; /* Adjust canvas width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
