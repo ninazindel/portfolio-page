@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="Style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+    <!-- Leaflet JS -->
+    <script src="vendor/leaflet/leaflet.js"></script>
+
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -12,6 +17,7 @@
         <a href="#introduction">INTRODUCTION</a>
         <a href="#skills">SKILLS</a>
         <a href="#goals">GOALS</a>
+        <a href="#places">PLACES</a>
     </nav>
 
     <!-- Introduction Section -->
@@ -22,27 +28,38 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h1>SKILLS</h1>
-        <!-- Tabs for categories -->
-        <div class="tabs">
-            <button class="tab" onclick="showWordCloud('all')">All</button>
-            <button class="tab" onclick="showWordCloud('technical')">Technical</button>
-            <button class="tab" onclick="showWordCloud('interpersonal')">Interpersonal</button>
-        </div>
-        <!-- Canvas for the word cloud -->
-        <canvas id="word-map" width="1300" height="500"></canvas>
-    </section>
+<section id="skills" class="section">
+    <h1>SKILLS</h1>
+    <!-- Tabs for categories -->
+    <div class="tabs">
+        <button class="tab tab--active" data-category="all">All</button>
+        <button class="tab" data-category="technical">Technical</button>
+        <button class="tab" data-category="interpersonal">Interpersonal</button>
+    </div>
+    <!-- Canvas for the word cloud -->
+    <canvas id="word-map"></canvas>
+</section>
 
     <!-- Goals Section -->
     <section id="goals" class="section">
         <h1>GOALS</h1>
-        <p>List all the goals</p>
-    </section>
+        <p id="goals-intro">Here are some motivational quotes for achieving your goals:</p>
+        <ul id="goals-list">
+            <!-- API data will be inserted here -->
+        </ul>
+    </section>    
 
     <!-- Include Wordcloud.js before script.js -->
     <script src="js/wordcloud2.js"></script>
     <script src="script.js"></script>
+
+<!-- Places Section -->
+<section id="places" class="section">
+    <h1>PLACES</h1>
+    <p>Here are the places I’ve lived in:</p>
+    <!-- Map Container -->
+    <div id="map" style="height: 400px; width: 100%;"></div>
+</section>
 </body>
 </html>
 
