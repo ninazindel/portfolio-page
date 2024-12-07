@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="Style.css">
+    <script src="js/wordcloud2.js"></script>
+    <script src="script.js"></script>
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <!-- Leaflet JS -->
@@ -13,23 +19,44 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <a href="#introduction">INTRODUCTION</a>
-        <a href="#skills">SKILLS</a>
-        <a href="#goals">GOALS</a>
-        <a href="#places">PLACES</a>
-    </nav>
+<nav class="navbar">
+    <a href="#about-me">ABOUT ME</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#education">EDUCATION</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT ME</a>
+</nav>
 
-    <!-- Introduction Section -->
-    <section id="introduction" class="section">
-        <img src="images/portfolio image.png" alt="Photo of Nina" class="profile-photo">
-        <h1>ABOUT ME</h1>
-        <p id="typing-text"></p>
-    </section>
+<!-- About Me Section -->
+<section id="about-me" class="section">
+    <img src="images/portfolio image.png" alt="Photo of Nina" class="profile-photo">
+    <div id="name-container">
+    <div id="sparkle-container" class="flicker-element">✨</div>
+    <h1 id="animated-name">Nina Zindel</h1>
+    <div class="about-icons">
+        <i class="fas fa-phone-alt" onclick="window.location.href='tel:+41761234567'" title="Call me"></i>
+        <i class="fas fa-envelope" onclick="window.location.href='mailto:nina.zindel@students.bfh.ch'" title="Email me"></i>
+        <i class="fab fa-github" onclick="window.open('https://github.com/ninazindel', '_blank')" title="Visit my GitHub"></i>
+    </div>
+    <div class="about-list-container">
+        <ul class="about-list">
+            <li>👋 Hi, my name is Nina, and I'm from Switzerland.</li>
+            <li>💻 I am studying Business Information Technology at Bern University of Applied Sciences.</li>
+            <li>🧘‍♀️ Yoga and Meditation help me to stay balanced and focused.</li>
+            <li>🧩 I like to be confronted with challenges that require using my problem-solving skills.</li>
+            <li>✈️  I love traveling and exploring new places whenever possible.</li>
+            <li>📈 I'm passionate about self-development and love learning new technologies.</li>
+        </ul>
+    </div>
+    <div id="quote-container">
+        <p id="inspirational-quote">Loading inspirational quote...</p>
+    </div>
+    <button id="new-quote-button">Get Another Quote</button>
+</section>
 
     <!-- Skills Section -->
-<section id="skills" class="section">
-    <h1>SKILLS</h1>
+    <section id="skills" class="section section--skills">
+        <h1>SKILLS</h1>
     <!-- Tabs for categories -->
     <div class="tabs">
         <button class="tab tab--active" data-category="all">All</button>
@@ -37,30 +64,56 @@
         <button class="tab" data-category="interpersonal">Interpersonal</button>
     </div>
     <!-- Canvas for the word cloud -->
-    <canvas id="word-map"></canvas>
+    <canvas id="word-cloud"></canvas>
 </section>
 
-    <!-- Goals Section -->
+    <!-- Education Section -->
     <section id="goals" class="section">
-        <h1>GOALS</h1>
-        <p id="goals-intro">Here are some motivational quotes for achieving your goals:</p>
+        <h1>EDUCATION</h1>
+        <p id="education-intro">Here you find my professional and educational background</p>
         <ul id="goals-list">
             <!-- API data will be inserted here -->
         </ul>
     </section>    
 
-    <!-- Include Wordcloud.js before script.js -->
-    <script src="js/wordcloud2.js"></script>
-    <script src="script.js"></script>
-
-<!-- Places Section -->
-<section id="places" class="section">
-    <h1>PLACES</h1>
-    <p>Here are the places I’ve lived in:</p>
-    <!-- Map Container -->
-    <div id="map" style="height: 400px; width: 100%;"></div>
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <h1>PROJECTS</h1>
+    <p>Here are some of the projects I've worked on:</p>
 </section>
 </body>
 </html>
 
+<section id="contact" class="section">
+    <h1>CONTACT ME</h1>
+    <p>If you'd like to get in touch, please fill out the form below:</p>
+    <form id="contact-form" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send</button>
+    </form>
+
+    <!-- Alternative Contact Information -->
+    <div class="contact-info">
+        <h2>Alternatively, you can reach me at:</h2>
+    <ul class="contact-list">
+        <li class="contact-item phone">
+            <i class="fas fa-phone-alt"></i> +41 77 532 88 27
+        </li>
+        <li class="contact-item email">
+            <i class="fas fa-envelope"></i> <a href="mailto:your.email@example.com">nina.zindel@students.bfh.ch</a>
+        </li>
+        <li class="contact-item github">
+            <i class="fab fa-github"></i> <a href="https://github.com/yourusername" target="_blank">https://github.com/ninazindel</a>
+        </li>
+    </ul>
+    </div>
+</section>
 

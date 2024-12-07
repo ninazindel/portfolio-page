@@ -1,18 +1,37 @@
-// Typing Effect JavaScript
-const text = "Hello! I'm Nina, a part-time student of business information technology";
-const typingText = document.getElementById("typing-text");
+// Function to fetch and display a random quote
+const backupQuotes = [
+    '"The best way to predict the future is to invent it." – Alan Kay',
+    '"Life is what happens when you’re busy making other plans." – John Lennon',
+    '"Do what you can with all you have, wherever you are." – Theodore Roosevelt',
+    '"Strive not to be a success, but rather to be of value." – Albert Einstein',
+    '"You miss 100% of the shots you don’t take." – Wayne Gretzky'
+];
 
-let index = 0;
+async function fetchRandomQuote() {
+    const quoteContainer = document.getElementById('inspirational-quote');
 
-function typeWriter() {
-    if (index < text.length) {
-        typingText.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 50); // Adjust speed (50ms per character)
+    try {
+        // Fetch a random quote from the Quotable API
+        const response = await fetch('https://api.quotable.io/random');
+        if (!response.ok) {
+            throw new Error('Failed to fetch quote');
+        }
+
+        const data = await response.json();
+
+        // Display the quote and author
+        quoteContainer.textContent = `"${data.content}" – ${data.author}`;
+    } catch (error) {
+        console.error('Error fetching the quote:', error);
+        // Display a fallback quote from the list
+        const randomBackupQuote = backupQuotes[Math.floor(Math.random() * backupQuotes.length)];
+        quoteContainer.textContent = randomBackupQuote;
     }
 }
 
-typeWriter();
+// Call the function by clicking on button
+document.getElementById('new-quote-button').addEventListener('click', fetchRandomQuote);
+
 
 // Word Cloud Data and Functions
 const wordLists = {
@@ -58,16 +77,20 @@ const wordLists = {
     ]
 };
 
-const canvas = document.getElementById('word-map');
+const canvas = document.getElementById('word-cloud');
 
 function resizeCanvas() {
     const parentWidth = canvas.parentElement.offsetWidth;
-    canvas.width = parentWidth * 0.9;
+    console.log("Parent Width:", parentWidth); // Debugging
+    canvas.width = parentWidth * 0.95; // Wider canvas
     canvas.height = canvas.width;
+    console.log("Canvas dimensions set to:", canvas.width, canvas.height); // Debugging
 }
 
 function generateWordCloud(category) {
     resizeCanvas();
+    console.log("Generating word cloud for category:", category); // Debugging
+    console.log("Word Cloud Data:", wordLists[category]); // Debugging
 
     WordCloud(canvas, {
         list: wordLists[category],
@@ -81,7 +104,16 @@ function generateWordCloud(category) {
         rotateRatio: 0,
         backgroundColor: '#2e2e2e'
     });
+
+    console.log("Word cloud generated successfully.");
 }
+
+WordCloud(canvas, {
+    list: [['Test', 10], ['Example', 20], ['Demo', 15]],
+    gridSize: 8,
+    weightFactor: 15,
+    backgroundColor: '#2e2e2e'
+});
 
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', function () {
@@ -99,59 +131,58 @@ window.addEventListener('resize', () => {
     generateWordCloud(activeCategory);
 });
 
-// Leaflet Map Setup
-const map = L.map('map').setView([51.505, -0.09], 5);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-const places = [
-    { name: "Berlin, Germany", coords: [52.5200, 13.4050], description: "I lived in Berlin for 2 years." },
-    { name: "Zurich, Switzerland", coords: [47.3769, 8.5417], description: "Zurich was home during an internship." },
-    { name: "Vienna, Austria", coords: [48.2082, 16.3738], description: "3 years in Vienna working as a developer." }
-];
-
-places.forEach(place => {
-    L.marker(place.coords).addTo(map).bindPopup(`<b>${place.name}</b><br>${place.description}`);
-});
-
-document.querySelector('a[href="#places"]').addEventListener('click', () => {
-    setTimeout(() => {
-        map.invalidateSize();
-        map.setView([51.505, -0.09], 5);
-    }, 300);
-});
-
-// Fetch Goals from API
-async function fetchGoals() {
-    const goalsList = document.getElementById("goals-list");
-    goalsList.innerHTML = "<li>Loading...</li>";
+// Fetch Education Data 
+async function fetchEducationData() {
+    const educationList = document.getElementById("education-list"); // Updated ID
+    educationList.innerHTML = "<li>Loading...</li>";
 
     try {
-        console.log("Fetching motivational quotes...");
-        const response = await fetch("https://api.quotable.io/quotes?tags=motivation");
-        console.log("Response status:", response.status);
-
+        const response = await fetch("https://api.example.com/education"); // Example API
         if (!response.ok) {
-            throw new Error("Failed to fetch quotes");
+            throw new Error("Failed to fetch education data");
         }
-
         const data = await response.json();
-        console.log("Fetched data:", data);
+        educationList.innerHTML = "";
 
-        goalsList.innerHTML = "";
-
-        data.results.slice(0, 5).forEach(quote => {
+        data.forEach(item => {
             const listItem = document.createElement("li");
-            listItem.textContent = `"${quote.content}" - ${quote.author}`;
-            goalsList.appendChild(listItem);
+            listItem.textContent = item; // Example: Add education items
+            educationList.appendChild(listItem);
         });
     } catch (error) {
-        goalsList.innerHTML = "<li>Failed to load goals. Please try again later.</li>";
-        console.error("Error fetching goals:", error);
+        educationList.innerHTML = "<li>Failed to load education data. Please try again later.</li>";
     }
 }
+document.addEventListener("DOMContentLoaded", fetchEducationData);
 
-document.addEventListener("DOMContentLoaded", fetchGoals);
+// Projects Section
+const projects = [
+    { name: "Portfolio Website", description: "My personal portfolio site built with HTML, CSS, and JavaScript." },
+    { name: "Weather App", description: "A weather forecasting app using OpenWeatherMap API." },
+    { name: "Task Manager", description: "A simple task management app with React and Node.js." }
+];
 
+const projectsContainer = document.getElementById("projects-container"); // Updated ID
+projects.forEach(project => {
+    const projectElement = document.createElement("div");
+    projectElement.innerHTML = `<h3>${project.name}</h3><p>${project.description}</p>`;
+    projectsContainer.appendChild(projectElement);
+});
+
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent page reload
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    console.log('Contact Form Submitted:');
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Message:', message);
+
+    alert('Thank you for your message! I will get back to you soon.');
+
+    // Clear the form
+    e.target.reset();
+});

@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #000000; /* Schwarzer Hintergrund */
-    color: white; /* Weiße Schrift für Kontrast */
+    background-color: #000000; /* Black background */
+    color: white; /* White text for contrast */
 }
 
 /* Navigation Bar Styles */
@@ -13,21 +13,37 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #2e2e2e; /* Dunkelgraue Navbar */
+    background-color: transparent; /* Transparent background */
+    display: flex;
+    justify-content: center;
     padding: 10px 0;
-    text-align: center;
     z-index: 1000;
 }
 
-.navbar__link {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1rem; /* Verwende rem für bessere Skalierung */
+.navbar a {
+    background-color: #9BAE92; /* Sage green background */
+    color: white; /* White text */
+    font-weight: bold;
+    font-size: 1.5rem; /* Larger font size */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between tabs */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
 }
 
-.navbar__link:hover {
-    color: #00bcd4; /* Hellblau bei Hover */
+.navbar a:hover {
+    background-color: #869C7B; /* Slightly darker sage green on hover */
+    transform: scale(1.1); /* Zoom effect */
+}
+
+.navbar a:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Space Between Tabs */
+.navbar a + a {
+    margin-left: 25px; /* Space between each tab */
 }
 
 /* Section Styling */
@@ -37,158 +53,418 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1a1a1a; /* Dunkelgraue Abschnitte */
+    background-color: #1a1a1a; /* Dark gray background */
     border-radius: 10px;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Section Title Styling */
+.section h1 {
+    font-size: 3rem; /* Make the title larger */
+    color: #6A7F58; /* Sage green color */
+    font-weight: bold; /* Ensure the title stands out */
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Add space below the title */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Titles */
+.section h1:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    color: #869C7B; /* Slightly darker sage green on hover */
+}
+
+
+/* About Me Section */
 .section--about {
-    background-color: #1e1e1e; /* Abweichende Farbe für "About Me" */
-}
-
-.section--skills {
-    background-color: #2a2a2a; /* Abweichende Farbe für "Skills" */
-}
-
-/* Heading Styling */
-.section__heading {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    background-color: #1a1a1a; /* Keep dark gray like other sections */
     color: white;
+    border-radius: 10px;
+    padding: 40px;
 }
 
-.section__paragraph {
-    max-width: 600px;
-    line-height: 1.6;
-    color: #dcdcdc; /* Hellgrauer Text */
-}
-
-/* Profile Photo */
 .profile-photo {
-    width: 100%; /* Breite passt sich an */
-    max-width: 300px; /* Begrenze maximale Breite */
-    height: auto; /* Bewahre das Seitenverhältnis */
-    margin: 20px auto; /* Zentriere das Bild */
+    width: 70%; /* Adjust the width */
+    max-width: 300px; /* Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50% / 30%; /* Oval shape */
+    border: 5px solid #6A7F58; /* Sage green border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional shadow */
     display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtile Schatten */
+    margin: 10px auto; /* Center the image */
+    object-fit: cover; /* Ensure the image fits within the border */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .profile-photo:hover {
-    transform: scale(1.05); /* Vergrößere leicht bei Hover */
-    transition: transform 0.3s ease-in-out; /* Weiche Animation */
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-/* Tabs Styling */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tab {
-    background-color: #2e2e2e;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.tab:hover {
-    background-color: #444; /* Helleres Grau bei Hover */
-}
-
-.tab:focus {
-    outline: none;
-}
-
-.tab--active {
-    background-color: #444; /* Slightly lighter gray */
-    color: #00bcd4; /* Highlight color */
-    font-weight: bold;
-}
-
-.tab {
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-}
-
-.word-cloud {
-    width: 90%; /* Use a percentage-based width for responsiveness */
-    max-width: 400px; /* Constrain the maximum width */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px auto; /* Center the word cloud */
-    display: block;
-    border-radius: 10px;
-    background-color: #2e2e2e; /* Optional: Dark gray background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-    /* Responsiveness */
-    width: 100%; /* Use full container width */
-    max-width: 400px; /* Constrain maximum width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-    .word-cloud {
-        width: 90%; /* Use 90% of the screen width */
-        max-width: none; /* Remove maximum width */
-    }
-}
-
-@media (max-width: 480px) {
-    .word-cloud {
-        width: 100%; /* Use full screen width on very small devices */
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-
-#map {
-    height: 400px; /* Feste Höhe für die Karte */
-    width: 100%; /* Karte füllt den verfügbaren Platz */
-    margin-top: 20px; /* Abstand zum Rest */
-    border-radius: 10px; /* Optional: Abgerundete Ecken */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Schatten */
-}
-
-@media (max-width: 768px) {
-    #map {
-        height: 300px; /* Kleinere Höhe für mobile Geräte */
-    }
-}
-
-@media (max-width: 480px) {
-    #map {
-        height: 250px; /* Noch kleinere Höhe für sehr kleine Geräte */
-    }
-}
-/* Goals Section Styles */
-#goals {
-    background-color: #2a2a2a; /* Dark Gray */
-    color: white;
-    padding: 40px;
+/* Sparkle Styling */
+#sparkle-container {
+    font-size: 3rem; /* Size of the sparkle */
     text-align: center;
+    margin: 0px 0; /* Space between the photo and name */
+    animation: flicker 1.5s infinite; /* Flicker animation */
 }
 
-#goals-list {
-    list-style: none;
+/* About Me List Container */
+.about-list-container {
+    background-color: #E4E7E1; /* Pale sage green for the list container */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto; /* Center the container */
+    max-width: 800px; /* Restrict maximum width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    text-align: left; /* Align text to the left inside the container */
+}
+
+.about-list {
+    list-style: none; /* Remove bullet points */
     padding: 0;
-    margin: 20px auto;
-    max-width: 600px;
+    margin: 0;
     text-align: left;
 }
 
-#goals-list li {
-    background-color: #444;
-    color: white;
+.about-list li {
+    background-color: #D8DDD7; /* Slightly darker sage green for list items */
+    color: #1a1a1a; /* Dark text for contrast */
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     font-size: 1.1rem;
     line-height: 1.4;
+}
+
+/* Hover Effect for List Items */
+.about-list li:hover {
+    background-color: #BCC4B7; /* Darker sage green on hover */
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Name Container */
+#name-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack sparkle above the name */
+    align-items: center; /* Center-align everything */
+    justify-content: center;
+    gap: 0.5rem; /* Adjust space between sparkle and name */
+    margin-top: 10px; /* Adjust space between photo and sparkle */
+}
+
+/* Name Styling */
+#animated-name {
+    font-size: 4rem; /* Adjust size as needed */
+    color: #6A7F58; /* Sage green */
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+    margin-top: 10px; /* Add space between sparkle and name */
+}
+
+/* Hover Effect */
+#name-container:hover #animated-name {
+    transform: scale(1.2); /* Zoom in the name on hover */
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0.5; /* Dimmed */
+    }
+}
+
+/* Container for the icons */
+.about-icons {
+    display: flex; /* Arrange icons in a row */
+    justify-content: center; /* Center them horizontally */
+    gap: 1.5rem; /* Spacing between icons */
+    margin-top: 1rem; /* Add some space above icons */
+}
+
+/* Style for each icon */
+.about-icons i {
+    font-size: 2rem; /* Adjust size of icons */
+    color: #6A7F58; /* Sage green color */
+    cursor: pointer; /* Make icons clickable */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth animations */
+}
+
+/* Hover effect */
+.about-icons i:hover {
+    transform: scale(1.2); /* Enlarge icon on hover */
+    color: white; /* Change color on hover */
+}
+
+/* Tooltip effect using the title attribute */
+.about-icons i[title] {
+    position: relative;
+}
+
+.about-icons i[title]:hover::after {
+    content: attr(title); /* Display the title attribute */
+    position: absolute;
+    top: 150%; /* Position tooltip below icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6A7F58; /* Sage green background */
+    color: white; /* White text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent text wrap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Tooltip hidden by default */
+.about-icons i[title]::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#quote-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #E4E7E1; /* Pale sage green */
+    color: #1a1a1a; /* Dark text */
+    font-style: italic; /* Italicize the quote */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px; /* Limit the width */
+    margin: 20px auto; /* Center the quote container */
+    text-align: center;
+    font-size: 1.2rem; /* Slightly larger font size */
+}
+
+#inspirational-quote {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    line-height: 1.6; /* Improve readability */
+}
+#new-quote-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #6A7F58; /* Sage green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#new-quote-button:hover {
+    background-color: #869C7B; /* Darker sage green */
+    transform: scale(1.05); /* Slight zoom */
+}
+
+/* Skills Section */
+.section--skills h1 {
+    font-size: 3rem; /* Make the title larger */
+    color: #6A7F58; /* Sage green color */
+    font-weight: bold; /* Ensure the title stands out */
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Add space below the title */
+}
+
+/* Word Cloud Styling */
+#word-cloud {
+    width: 95%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    background-color: #2e2e2e; /* Dark gray background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .word-cloud {
+        width: 90%;
+        max-width: none;
+    }
+    #map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .word-cloud {
+        width: 100%;
+    }
+    #map {
+        height: 250px;
+    }
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+}
+
+.contact-form label {
+    font-size: 1.2rem;
+    color: #6A7F58; /* Sage green */
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #9BAE92; /* Sage green border */
+    border-radius: 5px;
+    background-color: #2e2e2e; /* Dark gray background */
+    color: white;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #6A7F58; /* Sage green on focus */
+}
+
+.contact-form button {
+    background-color: #9BAE92; /* Sage green background */
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+    background-color: #6A7F58; /* Darker sage green */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Contact Info Styling */
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 1.5rem;
+    color: #6A7F58; /* Sage green */
+    margin-bottom: 20px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.contact-list li i {
+    color: #6A7F58; /* Sage green */
+    font-size: 1.5rem;
+}
+
+.contact-list li a {
+    color: #00bcd4; /* Light blue for links */
+    text-decoration: none;
+}
+
+.contact-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Icon Styling */
+.contact-list li i {
+    color: #6A7F58; /* Sage green */
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+/* Phone Icon: Pulse Effect */
+.contact-item.phone:hover i {
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Email Icon: Shake Effect */
+.contact-item.email:hover i {
+    animation: shake 0.6s infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+/* GitHub Icon: Spin Effect */
+.contact-item.github:hover i {
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Contact List Styling */
+.contact-list {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Space between each icon */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 20px 0; /* Add vertical margin */
 }
