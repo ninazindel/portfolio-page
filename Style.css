@@ -16,17 +16,25 @@ body {
     background-color: transparent; /* Transparent background */
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px 0;
     z-index: 1000;
 }
 
+/* Nav Links Container */
+.nav-links {
+    display: flex; /* Default: Horizontal layout for desktop */
+    gap: 15px; /* Space between links */
+    list-style: none; /* Remove bullet points */
+}
+
+/* Individual Nav Links */
 .navbar a {
     background-color: #9BAE92; /* Sage green background */
     color: white; /* White text */
-    font-weight: bold;
-    font-size: 1.5rem; /* Larger font size */
+    font-size: 1rem; /* Font size */
     text-decoration: none; /* Remove underline */
-    margin: 0 15px; /* Space between tabs */
+    margin: 5px; /* Adjust space between tabs */
     padding: 10px 20px; /* Button padding */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
@@ -37,13 +45,82 @@ body {
     transform: scale(1.1); /* Zoom effect */
 }
 
-.navbar a:focus {
-    outline: none; /* Remove focus outline */
+/* Vertical Menu */
+.vertical-menu {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden off-screen */
+    height: 100%; /* Full height */
+    width: 200px; /* Width of the menu */
+    background-color: #1a1a1a; /* Background color */
+    padding-top: 60px; /* Space for top navbar */
+    display: flex;
+    flex-direction: column; /* Stack items */
+    gap: 10px; /* Spacing between items */
+    z-index: 1000;
+    transition: left 0.3s ease; /* Smooth slide-in/out */
 }
 
-/* Space Between Tabs */
-.navbar a + a {
-    margin-left: 25px; /* Space between each tab */
+/* Show the menu */
+.vertical-menu.show-menu {
+    left: 0; /* Slide into view */
+}
+
+/* Vertical Menu Links */
+.vertical-menu a {
+    color: #ccc; /* Text color */
+    font-size: 1rem; /* Font size */
+    padding: 10px 15px; /* Padding for clickable area */
+    text-decoration: none; /* Remove underline */
+    text-align: left; /* Align text */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.vertical-menu a:hover {
+    color: white; /* Highlight text */
+    background-color: #6A7F58; /* Highlight background */
+}
+
+/* Hamburger Menu (Toggle Button) */
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px; /* Position on the left side */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1100; /* Above the menu */
+}
+
+/* Overlay Background */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none; /* Hidden by default */
+    z-index: 999; /* Just below the menu */
+}
+
+/* Show overlay */
+.menu-overlay.show-overlay {
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .vertical-menu {
+        width: 150px; /* Narrower on smaller screens */
+    }
+
+    .vertical-menu a {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px 10px; /* Adjust padding */
+    }
 }
 
 /* Section Styling */
@@ -76,6 +153,19 @@ body {
 }
 
 
+/* Adjust title font size for smaller screens */
+@media (max-width: 768px) {
+    .section h1 {
+        font-size: 2rem; /* Reduce title size on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .section h1 {
+        font-size: 1.5rem; /* Further reduce size on phones */
+    }
+}
+
 /* About Me Section */
 .section--about {
     background-color: #1a1a1a; /* Keep dark gray like other sections */
@@ -85,8 +175,8 @@ body {
 }
 
 .profile-photo {
-    width: 70%; /* Adjust the width */
-    max-width: 300px; /* Limit the maximum width */
+    width: 60%; /* Adjust the width */
+    max-width: 250px; /* Limit the maximum width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50% / 30%; /* Oval shape */
     border: 5px solid #6A7F58; /* Sage green border */
@@ -158,7 +248,7 @@ body {
 
 /* Name Styling */
 #animated-name {
-    font-size: 4rem; /* Adjust size as needed */
+    font-size: 3rem; /* Adjust size as needed */
     color: #6A7F58; /* Sage green */
     font-weight: bold;
     transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
@@ -267,6 +357,39 @@ body {
     transform: scale(1.05); /* Slight zoom */
 }
 
+#joke-container {
+    background-color: #e4f2e7; /* Light sage green background */
+    border: 2px solid #9BAE92; /* Sage green border */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#joke-text {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#new-joke-btn {
+    background-color: #9BAE92; /* Sage green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#new-joke-btn:hover {
+    background-color: #869C7B;
+    transform: scale(1.05);
+}
+
 /* Skills Section */
 .section--skills h1 {
     font-size: 3rem; /* Make the title larger */
@@ -290,7 +413,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .word-cloud {
+    #word-cloud {
         width: 90%;
         max-width: none;
     }
@@ -300,13 +423,333 @@ body {
 }
 
 @media (max-width: 480px) {
-    .word-cloud {
+    #word-cloud {
         width: 100%;
     }
     #map {
         height: 250px;
     }
 }
+
+/* Skills Sliders Section */
+.skills-sliders {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.skills-category {
+    flex: 1;
+    min-width: 300px; /* Adjust for responsiveness */
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.skills-category h2 {
+    font-size: 1.5rem;
+    color: #6A7F58; /* Sage green */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.slider {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.slider input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #6A7F58, #ccc);
+    outline: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    pointer-events: none; /* Disable interaction */
+}
+
+.slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #6A7F58; /* Sage green thumb */
+    cursor: pointer;
+    pointer-events: none; /* Disable interaction */
+}
+
+.slider input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #6A7F58;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+
+/* Section Styling */
+#education {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#education h1 {
+    font-size: 3rem;
+    color: #6A7F58; /* Sage green */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#education p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.cv-link {
+    color: white; /* Pink color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.cv-link:hover {
+    color: white;
+}
+
+/* Timeline Styling */
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 80%; /* Adjust to fit content */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: white; /* Line color */
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 12px;
+    height: 12px;
+    background-color: #6A7F58; /* Dot color */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+.timeline-content {
+    position: relative;
+    background-color: #2e2e2e;
+    color: #fff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 45%; /* Adjust width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.timeline-year {
+    background-color: #6A7F58; /* Sage green */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6A7F58;
+}
+
+.timeline-content p {
+    margin: 0 0 10px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.timeline-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.timeline-tags span {
+    background-color: #444;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline-content {
+        width: 80%;
+    }
+
+    .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+    }
+}
+
+/* Project Container Styles */
+.project-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align the cards horizontally */
+    gap: 20px; /* Add space between each card */
+}
+
+/* Project Card Styles */
+.project-card {
+    background-color: #3b3b3b; /* Medium grey background */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Make the cards wider */
+    max-width: 800px; /* Set a reasonable max-width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Thumbnail Styling for Images */
+.project-card img {
+    width: 20%; /* Smaller thumbnails */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space below the thumbnail */
+}
+
+.video-camera-icon {
+    font-size: 5rem; /* Adjust the size of the icon */
+    color: #6A7F58; /* Sage green color */
+    margin-bottom: 15px; /* Add space below the icon */
+    display: block;
+    text-align: center;
+}
+
+.video-camera-icon:hover {
+    color: #869C7B; /* Slightly darker sage green on hover */
+    transform: scale(1.1); /* Zoom effect on hover */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Styling for Videos */
+.project-card video {
+    width: 100%; /* Full width within the card */
+    max-width: 800px; /* Limit video size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space below the video */
+}
+
+
+/* Title Styling */
+.project-card h2 {
+    font-size: 1.5rem; /* Adjust title size */
+    color: white; /* White text */
+    text-align: center; /* Center the title */
+    margin-bottom: 10px;
+}
+
+/* Description Styling */
+.project-card p {
+    font-size: 1rem; /* Adjust description size */
+    color: white; /* White text */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 15px; /* Add space below the description */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* GitHub Button Styling */
+.github-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9BAE92; /* Sage green */
+    color: white;
+    width: 50px; /* Round button */
+    height: 50px;
+    border-radius: 50%; /* Make it circular */
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.github-button:hover {
+    transform: scale(1.1); /* Zoom effect */
+    background-color: #869C7B; /* Slightly darker green */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        width: 100%; /* Adjust width for smaller screens */
+    }
+
+    .project-card img,
+    .project-card video {
+        width: 90%; /* Slightly larger thumbnails on small screens */
+    }
+}
+
 
 /* Contact Section Styling */
 #contact {

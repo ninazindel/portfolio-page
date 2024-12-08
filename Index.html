@@ -18,14 +18,26 @@
 
 </head>
 <body>
-    <!-- Navigation Bar -->
-<nav class="navbar">
-    <a href="#about-me">ABOUT ME</a>
-    <a href="#skills">SKILLS</a>
-    <a href="#education">EDUCATION</a>
-    <a href="#projects">PROJECTS</a>
-    <a href="#contact">CONTACT ME</a>
+   <!-- Navigation Bar -->
+   <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="#about-me">ABOUT ME</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#education">EDUCATION</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact-me">CONTACT ME</a></li>
+    </ul>
 </nav>
+
+<!-- Vertical Menu -->
+<button class="menu-toggle">☰</button>
+<div class="vertical-menu">
+    <a href="#about-me">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact-me">Contact Me</a>
+</div>
 
 <!-- About Me Section -->
 <section id="about-me" class="section">
@@ -54,6 +66,14 @@
     <button id="new-quote-button">Get Another Quote</button>
 </section>
 
+<section id="fun-corner" class="section">
+    <h1>Fun Corner</h1>
+    <div id="joke-container">
+        <p id="joke-text">Loading a hilarious joke for you...</p>
+        <button id="new-joke-btn">Get Another Joke</button>
+    </div>
+</section>
+
     <!-- Skills Section -->
     <section id="skills" class="section section--skills">
         <h1>SKILLS</h1>
@@ -65,24 +85,140 @@
     </div>
     <!-- Canvas for the word cloud -->
     <canvas id="word-cloud"></canvas>
+
+    <div class="skills-sliders">
+        <div class="skills-category">
+            <h2>Languages</h2>
+            <div class="slider">
+                <label>German <span>Native</span></label>
+                <input type="range" value="100" max="100" disabled>
+            </div>
+            <div class="slider">
+                <label>English <span>C2</span></label>
+                <input type="range" value="90" max="100" disabled>
+            </div>
+            <div class="slider">
+                <label>French <span>B2</span></label>
+                <input type="range" value="70" max="100" disabled>
+            </div>
+        </div>
+    
+        <div class="skills-category">
+            <h2>Programming Languages</h2>
+            <div class="slider">
+                <label>Python <span>Advanced</span></label>
+                <input type="range" value="90" max="100" disabled>
+            </div>
+            <div class="slider">
+                <label>JavaScript <span>Proficient</span></label>
+                <input type="range" value="80" max="100" disabled>
+            </div>
+            <div class="slider">
+                <label>HTML <span>Expert</span></label>
+                <input type="range" value="100" max="100" disabled>
+            </div>
+        </div>
+    </div>
+    
 </section>
 
     <!-- Education Section -->
-    <section id="goals" class="section">
+    <section id="education" class="section">
         <h1>EDUCATION</h1>
-        <p id="education-intro">Here you find my professional and educational background</p>
-        <ul id="goals-list">
-            <!-- API data will be inserted here -->
-        </ul>
-    </section>    
+        <p>Here you find my educational journey so far. For more information, have a look at my <a href="path-to-your-cv.pdf" target="_blank" class="cv-link">curriculum vitae</a>.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-year">2021 - Present</span>
+                        <span class="timeline-title">BSc in Digital Business & AI</span>
+                    </div>
+                    <p>Bern University of Applied Sciences</p>
+                    <div class="timeline-tags">
+                        <span>Project Management</span>
+                        <span>Data Analytics</span>
+                        <span>Software Architecture</span>
+                        <span>Digital Law</span>
+                    </div>
+                </div>
+            </div> 
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-year">2019 - 2020</span>
+                        <span class="timeline-title">Vocational Baccalaureate</span>
+                    </div> 
+                    <p>KBZSG Commercial Vocational and Further Education Center St.Gallen</p>
+                    <div class="timeline-tags">
+                        <span>Languages</span>
+                        <span>Economics & Law</span>
+                        <span>Finance & Accounting</span>
+                        <span>History & Politics</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-year">2010 - 2014</span>
+                        <span class="timeline-title">Hotel & Tourism Diploma EFZ</span>
+                    </div> 
+                    <p>Passugg Swiss School of Tourism and Hospitality</p>
+                    <div class="timeline-tags">
+                        <span>Tourism</span>
+                        <span>Languages</span>
+                        <span>Hospitality</span>
+                        <span>Business Accounting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Projects Section -->
 <section id="projects" class="section">
     <h1>PROJECTS</h1>
-    <p>Here are some of the projects I've worked on:</p>
+        <div class="project-container">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src="images/portfolio image.png" alt="Project 1 Thumbnail" class="project-thumbnail">
+            <h2>Portfolio Page</h2>
+            <p>Create your own portfolio website. This page gives information about realized projects and experience in technologies</p>
+            <div class="project-links">
+                <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div> 
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="images/Credit Scoring Model.png" alt="Project 2 Thumbnail" class="project-thumbnail">
+            <h2>Credit Scoring Model</h2>
+            <p>As part of the module SBD2 at the Bern University of Applied Sciences, I was assigned the task to build a Credit Scoring Model as part of a group.
+                Goal: Building, evaluating and discussing a credit scoring model.
+                Technologies used: R markdown</p>
+            <div class="project-links">
+                <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+            <i class="fas fa-video video-camera-icon"></i>
+            <h2>Confrontation with Fear</h2>
+            <p>As part of the module WKOM, I had to do a persuasive speech in video format.</p>
+            <video controls width="100%">
+                <source src="videos/confrontation with fear.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 </section>
-</body>
-</html>
 
 <section id="contact" class="section">
     <h1>CONTACT ME</h1>

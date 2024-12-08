@@ -1,3 +1,34 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const verticalMenu = document.querySelector('.vertical-menu');
+    const menuOverlay = document.createElement('div'); // Create overlay element
+
+    // Add class and append overlay to the body
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
+
+    // Function to toggle the menu
+    menuToggle.addEventListener('click', () => {
+        verticalMenu.classList.toggle('show-menu');
+        menuOverlay.classList.toggle('show-overlay'); // Toggle overlay visibility
+    });
+
+    // Function to hide the menu after clicking a link
+    document.querySelectorAll('.vertical-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            verticalMenu.classList.remove('show-menu');
+            menuOverlay.classList.remove('show-overlay'); // Hide overlay
+        });
+    });
+
+    // Function to hide the menu when clicking outside (overlay)
+    menuOverlay.addEventListener('click', () => {
+        verticalMenu.classList.remove('show-menu');
+        menuOverlay.classList.remove('show-overlay'); // Hide overlay
+    });
+});
+
 // Function to fetch and display a random quote
 const backupQuotes = [
     '"The best way to predict the future is to invent it." – Alan Kay',
@@ -32,8 +63,34 @@ async function fetchRandomQuote() {
 // Call the function by clicking on button
 document.getElementById('new-quote-button').addEventListener('click', fetchRandomQuote);
 
+document.addEventListener("DOMContentLoaded", () => {
+    const jokeText = document.getElementById("joke-text");
+    const newJokeBtn = document.getElementById("new-joke-btn");
 
-// Word Cloud Data and Functions
+    // Function to fetch a joke
+    async function fetchJoke() {
+        try {
+            const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single");
+            if (!response.ok) {
+                throw new Error("Failed to fetch joke.");
+            }
+
+            const data = await response.json();
+            jokeText.textContent = data.joke || "No joke found! Try again.";
+        } catch (error) {
+            console.error(error);
+            jokeText.textContent = "Failed to fetch a joke. Please try again.";
+        }
+    }
+
+    // Fetch a joke when the page loads
+    fetchJoke();
+
+    // Fetch a new joke when the button is clicked
+    newJokeBtn.addEventListener("click", fetchJoke);
+});
+
+// Word Cloud Data and Categories
 const wordLists = {
     all: [
         ['HTML', 13, 'blue'],
@@ -45,14 +102,14 @@ const wordLists = {
         ['SQL', 15, 'blue'],
         ['Node.js', 11, 'blue'],
         ['Docker', 11, 'blue'],
-        ['Angular', 12, 'blue'],
+        ['Angular', 12, 'blue'], 
         ['Communication', 16, 'green'],
         ['Teamwork', 15.5, 'green'],
         ['Problem Solving', 15, 'green'],
         ['Leadership', 14.5, 'green'],
         ['Empathy', 16, 'green'],
         ['Conflict Resolution', 12, 'green'],
-        ['Time Management', 13, 'green']
+        ['Time Management', 13, 'green'],
     ],
     technical: [
         ['HTML', 13, 'blue'],
@@ -64,7 +121,7 @@ const wordLists = {
         ['SQL', 17, 'blue'],
         ['Node.js', 11, 'blue'],
         ['Docker', 11, 'blue'],
-        ['Angular', 12, 'blue']
+        ['Angular', 12], 'blue',
     ],
     interpersonal: [
         ['Communication', 14, 'green'],
@@ -73,24 +130,30 @@ const wordLists = {
         ['Leadership', 14.5, 'green'],
         ['Empathy', 16, 'green'],
         ['Conflict Resolution', 12, 'green'],
-        ['Time Management', 13, 'green']
-    ]
+        ['Time Management', 13, 'green'],
+    ],
 };
 
+// Select Canvas Element
 const canvas = document.getElementById('word-cloud');
 
-function resizeCanvas() {
-    const parentWidth = canvas.parentElement.offsetWidth;
-    console.log("Parent Width:", parentWidth); // Debugging
-    canvas.width = parentWidth * 0.95; // Wider canvas
-    canvas.height = canvas.width;
-    console.log("Canvas dimensions set to:", canvas.width, canvas.height); // Debugging
+if (!canvas) {
+    console.error("Canvas element not found");
 }
 
+// Function to Resize the Canvas Responsively
+function resizeCanvas() {
+    const parentWidth = canvas.parentElement.offsetWidth;
+    canvas.width = parentWidth * 0.95; // Set canvas width to 95% of parent
+    canvas.height = canvas.width * 0.6; // Keep height proportional
+}
+
+// Generate Word Cloud Based on Selected Category
 function generateWordCloud(category) {
+    console.log('generateWordCloud called for category:', category); // Debug line
+    console.log('Word list for category:', wordLists[category]); // Debug line
+
     resizeCanvas();
-    console.log("Generating word cloud for category:", category); // Debugging
-    console.log("Word Cloud Data:", wordLists[category]); // Debugging
 
     WordCloud(canvas, {
         list: wordLists[category],
@@ -105,31 +168,29 @@ function generateWordCloud(category) {
         backgroundColor: '#2e2e2e'
     });
 
-    console.log("Word cloud generated successfully.");
+    console.log('WordCloud generated successfully'); // Debug line
 }
 
-WordCloud(canvas, {
-    list: [['Test', 10], ['Example', 20], ['Demo', 15]],
-    gridSize: 8,
-    weightFactor: 15,
-    backgroundColor: '#2e2e2e'
-});
-
+// Event Listeners for Tabs
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', function () {
+        console.log('Tab clicked:', this.getAttribute('data-category')); // Debug line
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('tab--active'));
         this.classList.add('tab--active');
         const category = this.getAttribute('data-category');
+        console.log('Category:', category); // Debug line
         generateWordCloud(category);
     });
 });
 
-generateWordCloud('all');
-
+// Adjust Word Cloud on Window Resize
 window.addEventListener('resize', () => {
     const activeCategory = document.querySelector('.tab--active').getAttribute('data-category');
     generateWordCloud(activeCategory);
 });
+
+// Initial Render of the Word Cloud (Default: All)
+generateWordCloud('all');
 
 // Fetch Education Data 
 async function fetchEducationData() {
@@ -156,33 +217,39 @@ async function fetchEducationData() {
 document.addEventListener("DOMContentLoaded", fetchEducationData);
 
 // Projects Section
-const projects = [
-    { name: "Portfolio Website", description: "My personal portfolio site built with HTML, CSS, and JavaScript." },
-    { name: "Weather App", description: "A weather forecasting app using OpenWeatherMap API." },
-    { name: "Task Manager", description: "A simple task management app with React and Node.js." }
-];
+<section id="projects" class="section">
+    <h1>Projects</h1>
+    <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src="images/project1-thumbnail.jpg" alt="Project 1 Thumbnail" class="project-thumbnail">
+            <h2>Project 1 Title</h2>
+            <p>A brief description of your project. Mention its purpose and technologies used.</p>
+            <div class="project-links">
+                <a href="https://github.com/your-repo/project1" target="_blank">GitHub</a>
+                <a href="https://your-project-live-demo.com" target="_blank">Live Demo</a>
+            </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="images/project2-thumbnail.jpg" alt="Project 2 Thumbnail" class="project-thumbnail">
+            <h2>Project 2 Title</h2>
+            <p>A brief description of your project. Mention its purpose and technologies used.</p>
+            <div class="project-links">
+                <a href="https://github.com/your-repo/project2" target="_blank">GitHub</a>
+                <a href="https://your-project-live-demo.com" target="_blank">Live Demo</a>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="images/project3-thumbnail.jpg" alt="Project 3 Thumbnail" class="project-thumbnail">
+            <h2>Project 3 Title</h2>
+            <p>A brief description of your project. Mention its purpose and technologies used.</p>
+            <div class="project-links">
+                <a href="https://github.com/your-repo/project3" target="_blank">GitHub</a>
+                <a href="https://your-project-live-demo.com" target="_blank">Live Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-const projectsContainer = document.getElementById("projects-container"); // Updated ID
-projects.forEach(project => {
-    const projectElement = document.createElement("div");
-    projectElement.innerHTML = `<h3>${project.name}</h3><p>${project.description}</p>`;
-    projectsContainer.appendChild(projectElement);
-});
-
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent page reload
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    console.log('Contact Form Submitted:');
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
-
-    alert('Thank you for your message! I will get back to you soon.');
-
-    // Clear the form
-    e.target.reset();
-});
