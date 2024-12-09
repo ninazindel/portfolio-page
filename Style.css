@@ -1,19 +1,19 @@
-/* Base Styles */
+/* base styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #000000; /* Black background */
-    color: white; /* White text for contrast */
+    background-color: #000000; 
+    color: white; 
 }
 
-/* Navigation Bar Styles */
+/* navigation bar styles */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: transparent; /* Transparent background */
+    background-color: transparent; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,330 +21,324 @@ body {
     z-index: 1000;
 }
 
-/* Nav Links Container */
+/* nav links container */
 .nav-links {
-    display: flex; /* Default: Horizontal layout for desktop */
-    gap: 15px; /* Space between links */
-    list-style: none; /* Remove bullet points */
+    display: flex; 
+    gap: 15px; 
+    list-style: none; 
 }
 
-/* Individual Nav Links */
+/* individual nav links */
 .navbar a {
-    background-color: #9BAE92; /* Sage green background */
-    color: white; /* White text */
-    font-size: 1rem; /* Font size */
-    text-decoration: none; /* Remove underline */
-    margin: 5px; /* Adjust space between tabs */
-    padding: 10px 20px; /* Button padding */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    background-color: #9BAE92; 
+    color: white; 
+    font-size: 1rem; 
+    text-decoration: none; 
+    margin: 5px; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 .navbar a:hover {
-    background-color: #869C7B; /* Slightly darker sage green on hover */
-    transform: scale(1.1); /* Zoom effect */
+    background-color: #869C7B; 
+    transform: scale(1.1); 
 }
 
-/* Vertical Menu */
+/* vertical menu */
 .vertical-menu {
     position: fixed;
     top: 0;
-    left: -200px; /* Initially hidden off-screen */
-    height: 100%; /* Full height */
-    width: 200px; /* Width of the menu */
-    background-color: #1a1a1a; /* Background color */
-    padding-top: 60px; /* Space for top navbar */
+    left: -200px; 
+    height: 100%; 
+    width: 200px; 
+    background-color: #1a1a1a; 
+    padding-top: 60px; 
     display: flex;
-    flex-direction: column; /* Stack items */
-    gap: 10px; /* Spacing between items */
+    flex-direction: column; 
+    gap: 10px; 
     z-index: 1000;
-    transition: left 0.3s ease; /* Smooth slide-in/out */
+    transition: left 0.3s ease; 
 }
 
-/* Show the menu */
 .vertical-menu.show-menu {
-    left: 0; /* Slide into view */
+    left: 0; 
 }
 
-/* Vertical Menu Links */
+/* vertical menu links */
 .vertical-menu a {
-    color: #ccc; /* Text color */
-    font-size: 1rem; /* Font size */
-    padding: 10px 15px; /* Padding for clickable area */
-    text-decoration: none; /* Remove underline */
-    text-align: left; /* Align text */
+    color: #ccc; 
+    font-size: 1rem; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    text-align: left; 
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .vertical-menu a:hover {
-    color: white; /* Highlight text */
-    background-color: #6A7F58; /* Highlight background */
+    color: white; 
+    background-color: #6A7F58; 
 }
 
-/* Hamburger Menu (Toggle Button) */
+/* hamburger menu */
 .menu-toggle {
     position: fixed;
     top: 15px;
-    left: 15px; /* Position on the left side */
+    left: 15px; 
     background: none;
     border: none;
     color: white;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 1100; /* Above the menu */
+    z-index: 1100; 
 }
 
-/* Overlay Background */
+/* overlay background */
 .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    display: none; /* Hidden by default */
-    z-index: 999; /* Just below the menu */
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none;
+    z-index: 999; 
 }
 
-/* Show overlay */
 .menu-overlay.show-overlay {
     display: block;
 }
 
-/* Responsive Adjustments */
+/* responsivness */
 @media (max-width: 768px) {
     .vertical-menu {
-        width: 150px; /* Narrower on smaller screens */
+        width: 150px; 
     }
 
     .vertical-menu a {
-        font-size: 0.9rem; /* Adjust font size */
-        padding: 8px 10px; /* Adjust padding */
+        font-size: 0.9rem; 
+        padding: 8px 10px; 
     }
 }
 
-/* Section Styling */
+/* section styling */
 .section {
     padding: 100px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1a1a1a; /* Dark gray background */
+    background-color: #1a1a1a; 
     border-radius: 10px;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Section Title Styling */
+/* section title styling */
 .section h1 {
-    font-size: 3rem; /* Make the title larger */
-    color: #6A7F58; /* Sage green color */
-    font-weight: bold; /* Ensure the title stands out */
-    text-align: center; /* Center the title */
-    margin-bottom: 20px; /* Add space below the title */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 3rem; 
+    color: #6A7F58; 
+    font-weight: bold; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect for Titles */
 .section h1:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    color: #869C7B; /* Slightly darker sage green on hover */
+    transform: scale(1.1);
+    color: #869C7B; 
 }
 
-
-/* Adjust title font size for smaller screens */
+/* responsivness */
 @media (max-width: 768px) {
     .section h1 {
-        font-size: 2rem; /* Reduce title size on tablets */
+        font-size: 2rem; 
     }
 }
 
 @media (max-width: 480px) {
     .section h1 {
-        font-size: 1.5rem; /* Further reduce size on phones */
+        font-size: 1.5rem; 
     }
 }
 
-/* About Me Section */
+/* about me section */
 .section--about {
-    background-color: #1a1a1a; /* Keep dark gray like other sections */
+    background-color: #1a1a1a; 
     color: white;
     border-radius: 10px;
     padding: 40px;
 }
 
 .profile-photo {
-    width: 60%; /* Adjust the width */
-    max-width: 250px; /* Limit the maximum width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50% / 30%; /* Oval shape */
-    border: 5px solid #6A7F58; /* Sage green border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional shadow */
+    width: 60%; 
+    max-width: 250px; 
+    height: auto; 
+    border-radius: 50% / 30%; 
+    border: 5px solid #6A7F58; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     display: block;
-    margin: 10px auto; /* Center the image */
-    object-fit: cover; /* Ensure the image fits within the border */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    margin: 10px auto; 
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
 }
 
 .profile-photo:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1); 
 }
 
-/* Sparkle Styling */
+/* sparkle styling */
 #sparkle-container {
-    font-size: 3rem; /* Size of the sparkle */
+    font-size: 3rem; 
     text-align: center;
-    margin: 0px 0; /* Space between the photo and name */
-    animation: flicker 1.5s infinite; /* Flicker animation */
+    margin: 0px 0; 
+    animation: flicker 1.5s infinite; 
 }
 
-/* About Me List Container */
+/* about me list container */
 .about-list-container {
-    background-color: #E4E7E1; /* Pale sage green for the list container */
+    background-color: #E4E7E1; 
     padding: 20px;
     border-radius: 10px;
-    margin: 20px auto; /* Center the container */
-    max-width: 800px; /* Restrict maximum width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    text-align: left; /* Align text to the left inside the container */
+    margin: 20px auto; 
+    max-width: 800px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    text-align: left; 
 }
 
 .about-list {
-    list-style: none; /* Remove bullet points */
+    list-style: none; 
     padding: 0;
     margin: 0;
     text-align: left;
 }
 
 .about-list li {
-    background-color: #D8DDD7; /* Slightly darker sage green for list items */
-    color: #1a1a1a; /* Dark text for contrast */
+    background-color: #D8DDD7; 
+    color: #1a1a1a; 
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 1.1rem;
     line-height: 1.4;
 }
 
-/* Hover Effect for List Items */
 .about-list li:hover {
-    background-color: #BCC4B7; /* Darker sage green on hover */
+    background-color: #BCC4B7; 
     transform: scale(1.02);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Name Container */
+/* name container */
 #name-container {
     position: relative;
     display: flex;
-    flex-direction: column; /* Stack sparkle above the name */
-    align-items: center; /* Center-align everything */
+    flex-direction: column; 
+    align-items: center; 
     justify-content: center;
-    gap: 0.5rem; /* Adjust space between sparkle and name */
-    margin-top: 10px; /* Adjust space between photo and sparkle */
+    gap: 0.5rem; 
+    margin-top: 10px; 
 }
 
-/* Name Styling */
+/* name styling */
 #animated-name {
-    font-size: 3rem; /* Adjust size as needed */
-    color: #6A7F58; /* Sage green */
+    font-size: 3rem; 
+    color: #6A7F58; 
     font-weight: bold;
-    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
-    margin-top: 10px; /* Add space between sparkle and name */
+    transition: transform 0.3s ease-in-out; 
+    margin-top: 10px; 
 }
 
-/* Hover Effect */
 #name-container:hover #animated-name {
-    transform: scale(1.2); /* Zoom in the name on hover */
+    transform: scale(1.2); 
 }
 
-/* Flicker Animation */
+/* flicker animation */
 @keyframes flicker {
     0%, 100% {
-        opacity: 1; /* Fully visible */
+        opacity: 1; 
     }
     50% {
-        opacity: 0.5; /* Dimmed */
+        opacity: 0.5; 
     }
 }
 
-/* Container for the icons */
+/* icons container */
 .about-icons {
-    display: flex; /* Arrange icons in a row */
-    justify-content: center; /* Center them horizontally */
-    gap: 1.5rem; /* Spacing between icons */
-    margin-top: 1rem; /* Add some space above icons */
+    display: flex; 
+    justify-content: center; 
+    gap: 1.5rem; 
+    margin-top: 1rem; 
 }
 
-/* Style for each icon */
+/* icons style */
 .about-icons i {
-    font-size: 2rem; /* Adjust size of icons */
-    color: #6A7F58; /* Sage green color */
-    cursor: pointer; /* Make icons clickable */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth animations */
+    font-size: 2rem; 
+    color: #6A7F58; 
+    cursor: pointer; 
+    transition: transform 0.3s ease, color 0.3s ease; 
 }
 
-/* Hover effect */
 .about-icons i:hover {
-    transform: scale(1.2); /* Enlarge icon on hover */
-    color: white; /* Change color on hover */
+    transform: scale(1.2); 
+    color: white; 
 }
 
-/* Tooltip effect using the title attribute */
+/* tooltip effect */
 .about-icons i[title] {
     position: relative;
 }
 
 .about-icons i[title]:hover::after {
-    content: attr(title); /* Display the title attribute */
+    content: attr(title); 
     position: absolute;
-    top: 150%; /* Position tooltip below icon */
+    top: 150%; 
     left: 50%;
     transform: translateX(-50%);
-    background-color: #6A7F58; /* Sage green background */
-    color: white; /* White text */
+    background-color: #6A7F58; 
+    color: white; 
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.9rem;
-    white-space: nowrap; /* Prevent text wrap */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    white-space: nowrap; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Tooltip hidden by default */
+/* tooltip hidden by default */
 .about-icons i[title]::after {
     opacity: 0;
     visibility: hidden;
 }
 
+/* quote container */
 #quote-container {
     margin-top: 20px;
     padding: 20px;
-    background-color: #E4E7E1; /* Pale sage green */
-    color: #1a1a1a; /* Dark text */
-    font-style: italic; /* Italicize the quote */
+    background-color: #E4E7E1; 
+    color: #1a1a1a; 
+    font-style: italic; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px; /* Limit the width */
-    margin: 20px auto; /* Center the quote container */
+    max-width: 800px; 
+    margin: 20px auto; 
     text-align: center;
-    font-size: 1.2rem; /* Slightly larger font size */
+    font-size: 1.2rem; 
 }
 
 #inspirational-quote {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    line-height: 1.6; /* Improve readability */
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.6; 
 }
 #new-quote-button {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #6A7F58; /* Sage green */
+    background-color: #6A7F58; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -353,13 +347,14 @@ body {
 }
 
 #new-quote-button:hover {
-    background-color: #869C7B; /* Darker sage green */
-    transform: scale(1.05); /* Slight zoom */
+    background-color: #869C7B; 
+    transform: scale(1.05); 
 }
 
+/* joke container */
 #joke-container {
-    background-color: #e4f2e7; /* Light sage green background */
-    border: 2px solid #9BAE92; /* Sage green border */
+    background-color: #e4f2e7; 
+    border: 2px solid #9BAE92; 
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
@@ -375,7 +370,7 @@ body {
 }
 
 #new-joke-btn {
-    background-color: #9BAE92; /* Sage green */
+    background-color: #9BAE92; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -390,16 +385,16 @@ body {
     transform: scale(1.05);
 }
 
-/* Skills Section */
+/* skills section */
 .section--skills h1 {
-    font-size: 3rem; /* Make the title larger */
-    color: #6A7F58; /* Sage green color */
-    font-weight: bold; /* Ensure the title stands out */
-    text-align: center; /* Center the title */
-    margin-bottom: 20px; /* Add space below the title */
+    font-size: 3rem; 
+    color: #6A7F58; 
+    font-weight: bold; 
+    text-align: center; 
+    margin-bottom: 20px; 
 }
 
-/* Word Cloud Styling */
+/* word cloud styling */
 #word-cloud {
     width: 95%;
     max-width: 800px;
@@ -407,11 +402,11 @@ body {
     margin: 20px auto;
     display: block;
     border-radius: 10px;
-    background-color: #2e2e2e; /* Dark gray background */
+    background-color: #2e2e2e; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive Design */
+/* responsivness */
 @media (max-width: 768px) {
     #word-cloud {
         width: 90%;
@@ -431,7 +426,7 @@ body {
     }
 }
 
-/* Skills Sliders Section */
+/* skills sliders section */
 .skills-sliders {
     display: flex;
     justify-content: space-between;
@@ -442,7 +437,7 @@ body {
 
 .skills-category {
     flex: 1;
-    min-width: 300px; /* Adjust for responsiveness */
+    min-width: 300px; 
     background-color: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
@@ -452,7 +447,7 @@ body {
 
 .skills-category h2 {
     font-size: 1.5rem;
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     margin-bottom: 10px;
     text-align: center;
 }
@@ -480,7 +475,7 @@ body {
     outline: none;
     opacity: 0.8;
     transition: opacity 0.2s;
-    pointer-events: none; /* Disable interaction */
+    pointer-events: none; 
 }
 
 .slider input[type="range"]::-webkit-slider-thumb {
@@ -488,9 +483,9 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #6A7F58; /* Sage green thumb */
+    background: #6A7F58; 
     cursor: pointer;
-    pointer-events: none; /* Disable interaction */
+    pointer-events: none; 
 }
 
 .slider input[type="range"]::-moz-range-thumb {
@@ -502,8 +497,7 @@ body {
     pointer-events: none;
 }
 
-
-/* Section Styling */
+/* education section styling */
 #education {
     text-align: center;
     padding: 50px 20px;
@@ -511,7 +505,7 @@ body {
 
 #education h1 {
     font-size: 3rem;
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -522,7 +516,7 @@ body {
 }
 
 .cv-link {
-    color: white; /* Pink color for the link */
+    color: white; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -532,12 +526,12 @@ body {
     color: white;
 }
 
-/* Timeline Styling */
+/* timeline styling */
 .timeline {
     position: relative;
     margin: 0 auto;
     padding: 20px 0;
-    width: 80%; /* Adjust to fit content */
+    width: 80%; 
 }
 
 .timeline::before {
@@ -548,7 +542,7 @@ body {
     transform: translateX(-50%);
     width: 4px;
     height: 100%;
-    background-color: white; /* Line color */
+    background-color: white; 
     z-index: 1;
 }
 
@@ -571,7 +565,7 @@ body {
     transform: translate(-50%, 0);
     width: 12px;
     height: 12px;
-    background-color: #6A7F58; /* Dot color */
+    background-color: #6A7F58; 
     border-radius: 50%;
     z-index: 2;
     box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
@@ -583,7 +577,7 @@ body {
     color: #fff;
     border-radius: 10px;
     padding: 15px 20px;
-    width: 45%; /* Adjust width */
+    width: 45%; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -595,7 +589,7 @@ body {
 }
 
 .timeline-year {
-    background-color: #6A7F58; /* Sage green */
+    background-color: #6A7F58; 
     color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
@@ -629,7 +623,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Responsive Design */
+/* responsivness */
 @media (max-width: 768px) {
     .timeline {
         width: 100%;
@@ -644,89 +638,89 @@ body {
     }
 }
 
-/* Project Container Styles */
+/* project container styles */
 .project-container {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align the cards horizontally */
-    gap: 20px; /* Add space between each card */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
 }
 
-/* Project Card Styles */
+/* project card styles */
 .project-card {
-    background-color: #3b3b3b; /* Medium grey background */
+    background-color: #3b3b3b; 
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Make the cards wider */
-    max-width: 800px; /* Set a reasonable max-width */
+    width: 100%; 
+    max-width: 800px; 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Thumbnail Styling for Images */
+/* thumbnail styling for images */
 .project-card img {
-    width: 20%; /* Smaller thumbnails */
-    height: auto; /* Maintain aspect ratio */
+    width: 20%; 
+    height: auto; 
     border-radius: 10px;
-    margin-bottom: 15px; /* Space below the thumbnail */
+    margin-bottom: 15px; 
 }
 
 .video-camera-icon {
-    font-size: 5rem; /* Adjust the size of the icon */
-    color: #6A7F58; /* Sage green color */
-    margin-bottom: 15px; /* Add space below the icon */
+    font-size: 5rem; 
+    color: #6A7F58; 
+    margin-bottom: 15px; 
     display: block;
     text-align: center;
 }
 
 .video-camera-icon:hover {
-    color: #869C7B; /* Slightly darker sage green on hover */
-    transform: scale(1.1); /* Zoom effect on hover */
+    color: #869C7B; 
+    transform: scale(1.1); 
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 
-/* Styling for Videos */
+/* styling for video */
 .project-card video {
-    width: 100%; /* Full width within the card */
-    max-width: 800px; /* Limit video size */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; 
+    max-width: 800px; 
+    height: auto; 
     border-radius: 10px;
-    margin-bottom: 15px; /* Space below the video */
+    margin-bottom: 15px; 
 }
 
 
-/* Title Styling */
+/* title styling */
 .project-card h2 {
-    font-size: 1.5rem; /* Adjust title size */
-    color: white; /* White text */
-    text-align: center; /* Center the title */
+    font-size: 1.5rem; 
+    color: white; 
+    text-align: center; 
     margin-bottom: 10px;
 }
 
-/* Description Styling */
+/* description styling */
 .project-card p {
-    font-size: 1rem; /* Adjust description size */
-    color: white; /* White text */
-    text-align: left; /* Align text to the left */
-    margin-bottom: 15px; /* Add space below the description */
-    line-height: 1.6; /* Improve readability */
+    font-size: 1rem; 
+    color: white; 
+    text-align: left; 
+    margin-bottom: 15px; 
+    line-height: 1.6; 
 }
 
-/* GitHub Button Styling */
+/* github button styling */
 .github-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #9BAE92; /* Sage green */
+    background-color: #9BAE92; 
     color: white;
-    width: 50px; /* Round button */
+    width: 50px; 
     height: 50px;
-    border-radius: 50%; /* Make it circular */
+    border-radius: 50%; 
     text-decoration: none;
     font-size: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -734,24 +728,22 @@ body {
 }
 
 .github-button:hover {
-    transform: scale(1.1); /* Zoom effect */
-    background-color: #869C7B; /* Slightly darker green */
+    transform: scale(1.1); 
+    background-color: #869C7B; 
 }
 
-/* Responsive Adjustments */
+/* responsivness */
 @media (max-width: 768px) {
     .project-card {
-        width: 100%; /* Adjust width for smaller screens */
+        width: 100%; 
     }
 
     .project-card img,
     .project-card video {
-        width: 90%; /* Slightly larger thumbnails on small screens */
+        width: 90%; 
     }
 }
 
-
-/* Contact Section Styling */
 #contact {
     background-color: #1a1a1a;
     color: white;
@@ -765,12 +757,12 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between form elements */
+    gap: 15px; 
 }
 
 .contact-form label {
     font-size: 1.2rem;
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     text-align: left;
 }
 
@@ -779,9 +771,9 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #9BAE92; /* Sage green border */
+    border: 1px solid #9BAE92; 
     border-radius: 5px;
-    background-color: #2e2e2e; /* Dark gray background */
+    background-color: #2e2e2e; 
     color: white;
     outline: none;
     transition: border-color 0.3s ease;
@@ -789,11 +781,11 @@ body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #6A7F58; /* Sage green on focus */
+    border-color: #6A7F58; 
 }
 
 .contact-form button {
-    background-color: #9BAE92; /* Sage green background */
+    background-color: #9BAE92; 
     color: white;
     font-size: 1.2rem;
     padding: 10px;
@@ -804,11 +796,11 @@ body {
 }
 
 .contact-form button:hover {
-    background-color: #6A7F58; /* Darker sage green */
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #6A7F58; 
+    transform: scale(1.05); 
 }
 
-/* Contact Info Styling */
+/* contact info styling */
 .contact-info {
     margin-top: 40px;
     text-align: center;
@@ -816,7 +808,7 @@ body {
 
 .contact-info h2 {
     font-size: 1.5rem;
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     margin-bottom: 20px;
 }
 
@@ -832,16 +824,16 @@ body {
     color: white;
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and text */
+    gap: 10px; 
 }
 
 .contact-list li i {
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     font-size: 1.5rem;
 }
 
 .contact-list li a {
-    color: #00bcd4; /* Light blue for links */
+    color: #00bcd4; 
     text-decoration: none;
 }
 
@@ -849,14 +841,14 @@ body {
     text-decoration: underline;
 }
 
-/* Icon Styling */
+/* icon styling */
 .contact-list li i {
-    color: #6A7F58; /* Sage green */
+    color: #6A7F58; 
     font-size: 1.5rem;
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions for hover effects */
+    transition: transform 0.3s ease, color 0.3s ease; 
 }
 
-/* Phone Icon: Pulse Effect */
+/* phone icon: pulse effect */
 .contact-item.phone:hover i {
     animation: pulse 1.2s infinite;
 }
@@ -870,7 +862,7 @@ body {
     }
 }
 
-/* Email Icon: Shake Effect */
+/* email icon: shake effect */
 .contact-item.email:hover i {
     animation: shake 0.6s infinite;
 }
@@ -887,7 +879,7 @@ body {
     }
 }
 
-/* GitHub Icon: Spin Effect */
+/* gitHub icon: spin effect */
 .contact-item.github:hover i {
     animation: spin 1s infinite;
 }
@@ -901,13 +893,13 @@ body {
     }
 }
 
-/* Contact List Styling */
+/* contact list styling */
 .contact-list {
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: center; /* Center the icons horizontally */
-    align-items: center; /* Align items vertically */
-    gap: 20px; /* Space between each icon */
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 20px 0; /* Add vertical margin */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    list-style: none; 
+    padding: 0; 
+    margin: 20px 0; 
 }

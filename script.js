@@ -1,35 +1,35 @@
-
+// vertical menu functions
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const verticalMenu = document.querySelector('.vertical-menu');
-    const menuOverlay = document.createElement('div'); // Create overlay element
+    const menuOverlay = document.createElement('div'); 
 
-    // Add class and append overlay to the body
+    // add class and append overlay to the body
     menuOverlay.className = 'menu-overlay';
     document.body.appendChild(menuOverlay);
 
-    // Function to toggle the menu
+    // function to toggle the menu
     menuToggle.addEventListener('click', () => {
         verticalMenu.classList.toggle('show-menu');
-        menuOverlay.classList.toggle('show-overlay'); // Toggle overlay visibility
+        menuOverlay.classList.toggle('show-overlay'); 
     });
 
-    // Function to hide the menu after clicking a link
+    // function to hide the menu after clicking a link
     document.querySelectorAll('.vertical-menu a').forEach(link => {
         link.addEventListener('click', () => {
             verticalMenu.classList.remove('show-menu');
-            menuOverlay.classList.remove('show-overlay'); // Hide overlay
+            menuOverlay.classList.remove('show-overlay'); 
         });
     });
 
-    // Function to hide the menu when clicking outside (overlay)
+    // function to hide the menu when clicking outside 
     menuOverlay.addEventListener('click', () => {
         verticalMenu.classList.remove('show-menu');
-        menuOverlay.classList.remove('show-overlay'); // Hide overlay
+        menuOverlay.classList.remove('show-overlay'); 
     });
 });
 
-// Function to fetch and display a random quote
+// fetch and display a random quote
 const backupQuotes = [
     '"The best way to predict the future is to invent it." – Alan Kay',
     '"Life is what happens when you’re busy making other plans." – John Lennon',
@@ -42,7 +42,6 @@ async function fetchRandomQuote() {
     const quoteContainer = document.getElementById('inspirational-quote');
 
     try {
-        // Fetch a random quote from the Quotable API
         const response = await fetch('https://api.quotable.io/random');
         if (!response.ok) {
             throw new Error('Failed to fetch quote');
@@ -50,24 +49,23 @@ async function fetchRandomQuote() {
 
         const data = await response.json();
 
-        // Display the quote and author
         quoteContainer.textContent = `"${data.content}" – ${data.author}`;
     } catch (error) {
         console.error('Error fetching the quote:', error);
-        // Display a fallback quote from the list
+
         const randomBackupQuote = backupQuotes[Math.floor(Math.random() * backupQuotes.length)];
         quoteContainer.textContent = randomBackupQuote;
     }
 }
 
-// Call the function by clicking on button
+// function by clicking on button
 document.getElementById('new-quote-button').addEventListener('click', fetchRandomQuote);
 
 document.addEventListener("DOMContentLoaded", () => {
     const jokeText = document.getElementById("joke-text");
     const newJokeBtn = document.getElementById("new-joke-btn");
 
-    // Function to fetch a joke
+    // fetch a joke
     async function fetchJoke() {
         try {
             const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single");
@@ -83,14 +81,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Fetch a joke when the page loads
     fetchJoke();
 
-    // Fetch a new joke when the button is clicked
+    // function by clicking on button
     newJokeBtn.addEventListener("click", fetchJoke);
 });
 
-// Word Cloud Data and Categories
+// word cloud data and categories
 const wordLists = {
     all: [
         ['HTML', 13, 'blue'],
@@ -121,7 +118,7 @@ const wordLists = {
         ['SQL', 17, 'blue'],
         ['Node.js', 11, 'blue'],
         ['Docker', 11, 'blue'],
-        ['Angular', 12], 'blue',
+        ['Angular', 12, 'blue'],
     ],
     interpersonal: [
         ['Communication', 14, 'green'],
@@ -134,24 +131,24 @@ const wordLists = {
     ],
 };
 
-// Select Canvas Element
+// select canvas element
 const canvas = document.getElementById('word-cloud');
 
 if (!canvas) {
     console.error("Canvas element not found");
 }
 
-// Function to Resize the Canvas Responsively
+// function to responsiv resizing
 function resizeCanvas() {
     const parentWidth = canvas.parentElement.offsetWidth;
     canvas.width = parentWidth * 0.95; // Set canvas width to 95% of parent
     canvas.height = canvas.width * 0.6; // Keep height proportional
 }
 
-// Generate Word Cloud Based on Selected Category
+// generate word cloud based on selected category
 function generateWordCloud(category) {
-    console.log('generateWordCloud called for category:', category); // Debug line
-    console.log('Word list for category:', wordLists[category]); // Debug line
+    console.log('generateWordCloud called for category:', category); 
+    console.log('Word list for category:', wordLists[category]); 
 
     resizeCanvas();
 
@@ -168,37 +165,36 @@ function generateWordCloud(category) {
         backgroundColor: '#2e2e2e'
     });
 
-    console.log('WordCloud generated successfully'); // Debug line
+    console.log('WordCloud generated successfully'); 
 }
 
-// Event Listeners for Tabs
+// event listeners for tabs
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', function () {
-        console.log('Tab clicked:', this.getAttribute('data-category')); // Debug line
+        console.log('Tab clicked:', this.getAttribute('data-category')); 
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('tab--active'));
         this.classList.add('tab--active');
         const category = this.getAttribute('data-category');
-        console.log('Category:', category); // Debug line
+        console.log('Category:', category); 
         generateWordCloud(category);
     });
 });
 
-// Adjust Word Cloud on Window Resize
+// adjust word cloud on window resize
 window.addEventListener('resize', () => {
     const activeCategory = document.querySelector('.tab--active').getAttribute('data-category');
     generateWordCloud(activeCategory);
 });
 
-// Initial Render of the Word Cloud (Default: All)
 generateWordCloud('all');
 
-// Fetch Education Data 
+// education section
 async function fetchEducationData() {
-    const educationList = document.getElementById("education-list"); // Updated ID
+    const educationList = document.getElementById("education-list"); 
     educationList.innerHTML = "<li>Loading...</li>";
 
     try {
-        const response = await fetch("https://api.example.com/education"); // Example API
+        const response = await fetch("https://api.example.com/education"); 
         if (!response.ok) {
             throw new Error("Failed to fetch education data");
         }
@@ -216,7 +212,7 @@ async function fetchEducationData() {
 }
 document.addEventListener("DOMContentLoaded", fetchEducationData);
 
-// Projects Section
+// projects section
 <section id="projects" class="section">
     <h1>Projects</h1>
     <div class="project-grid">
@@ -252,4 +248,3 @@ document.addEventListener("DOMContentLoaded", fetchEducationData);
         </div>
     </div>
 </section>
-
