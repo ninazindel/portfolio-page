@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth
+}
+
 /* base styles */
 body {
     font-family: Arial, sans-serif;
@@ -108,9 +112,17 @@ body {
 .menu-overlay.show-overlay {
     display: block;
 }
-
+.menu-toggle{
+    display:none;
+}
 /* responsivness */
 @media (max-width: 768px) {
+    .navbar {
+        display:none;
+    }
+    .menu-toggle{
+        display:block;
+    }
     .vertical-menu {
         width: 150px; 
     }
@@ -172,15 +184,15 @@ body {
 
 .profile-photo {
     width: 60%; 
-    max-width: 250px; 
+    max-width: 250px;
     height: auto; 
     border-radius: 50% / 30%; 
     border: 5px solid #6A7F58; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     display: block;
     margin: 10px auto; 
-    object-fit: cover; 
     transition: transform 0.3s ease; 
+    object-fit: cover;
 }
 
 .profile-photo:hover {
@@ -636,6 +648,14 @@ body {
     .timeline-item:nth-child(even) {
         justify-content: flex-start;
     }
+
+    .timeline::before {
+        left:0;
+    }
+
+    .timeline-dot {
+        left:0;
+    }
 }
 
 /* project container styles */
@@ -648,6 +668,7 @@ body {
 
 /* project card styles */
 .project-card {
+    box-sizing:border-box;
     background-color: #3b3b3b; 
     border-radius: 10px;
     padding: 20px;
@@ -663,7 +684,7 @@ body {
 
 /* thumbnail styling for images */
 .project-card img {
-    width: 20%; 
+    width: 40%; 
     height: auto; 
     border-radius: 10px;
     margin-bottom: 15px; 
@@ -734,11 +755,7 @@ body {
 
 /* responsivness */
 @media (max-width: 768px) {
-    .project-card {
-        width: 100%; 
-    }
 
-    .project-card img,
     .project-card video {
         width: 90%; 
     }
