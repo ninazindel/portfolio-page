@@ -29,103 +29,111 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// fetch and display a random quote
-const backupQuotes = [
-    '"The best way to predict the future is to invent it." – Alan Kay',
-    '"Life is what happens when you’re busy making other plans." – John Lennon',
-    '"Do what you can with all you have, wherever you are." – Theodore Roosevelt',
-    '"Strive not to be a success, but rather to be of value." – Albert Einstein',
-    '"You miss 100% of the shots you don’t take." – Wayne Gretzky'
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const questionText = document.getElementById("question-text");
 
-async function fetchRandomQuote() {
-    const quoteContainer = document.getElementById('inspirational-quote');
+    
+    const question = "Do you need some inspiration or some cheering up?";
+    let index = 0;
 
-    try {
-        const response = await fetch('https://api.quotable.io/random');
-        if (!response.ok) {
-            throw new Error('Failed to fetch quote');
+    
+    function typeText() {
+        if (index < question.length) {
+            questionText.textContent += question[index];
+            index++;
+            setTimeout(typeText, 50); // Adjust typing speed
         }
-
-        const data = await response.json();
-
-        quoteContainer.textContent = `"${data.content}" – ${data.author}`;
-    } catch (error) {
-        console.error('Error fetching the quote:', error);
-
-        const randomBackupQuote = backupQuotes[Math.floor(Math.random() * backupQuotes.length)];
-        quoteContainer.textContent = randomBackupQuote;
     }
-}
 
-// function by clicking on button
-document.getElementById('new-quote-button').addEventListener('click', fetchRandomQuote);
+    
+    typeText();
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    const jokeText = document.getElementById("joke-text");
-    const newJokeBtn = document.getElementById("new-joke-btn");
+    const inspirationButton = document.getElementById("inspiration-button");
+    const cheeringUpButton = document.getElementById("cheering-up-button");
+    const contentDisplay = document.getElementById("content-display");
 
-    // fetch a joke
+    // backup quotes
+    const backupQuotes = [
+        '"The best way to predict the future is to invent it." – Alan Kay',
+        '"Life is what happens when you’re busy making other plans." – John Lennon',
+        '"Do what you can with all you have, wherever you are." – Theodore Roosevelt',
+        '"Strive not to be a success, but rather to be of value." – Albert Einstein',
+        '"You miss 100% of the shots you don’t take." – Wayne Gretzky'
+    ];
+
+    // function to fetch and display a random quote
+    async function fetchRandomQuote() {
+        try {
+            const response = await fetch('https://api.quotable.io/random');
+            if (!response.ok) throw new Error('Failed to fetch quote');
+            const data = await response.json();
+            contentDisplay.textContent = `"${data.content}" – ${data.author}`;
+        } catch (error) {
+            const randomBackupQuote = backupQuotes[Math.floor(Math.random() * backupQuotes.length)];
+            contentDisplay.textContent = randomBackupQuote;
+        }
+    }
+
+    // function to fetch and display a random joke
     async function fetchJoke() {
         try {
             const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single");
-            if (!response.ok) {
-                throw new Error("Failed to fetch joke.");
-            }
-
+            if (!response.ok) throw new Error("Failed to fetch joke.");
             const data = await response.json();
-            jokeText.textContent = data.joke || "No joke found! Try again.";
+            contentDisplay.textContent = data.joke || "No joke found! Try again.";
         } catch (error) {
-            console.error(error);
-            jokeText.textContent = "Failed to fetch a joke. Please try again.";
+            contentDisplay.textContent = "Failed to fetch a joke. Please try again.";
         }
     }
 
-    fetchJoke();
-
-    // function by clicking on button
-    newJokeBtn.addEventListener("click", fetchJoke);
+    inspirationButton.addEventListener("click", fetchRandomQuote);
+    cheeringUpButton.addEventListener("click", fetchJoke);
 });
 
+
 // word cloud data and categories
+
 const wordLists = {
     all: [
         ['HTML', 13, 'blue'],
         ['CSS', 13, 'blue'],
-        ['JavaScript', 11, 'blue'],
-        ['Python', 14, 'blue'],
-        ['Git', 14, 'blue'],
-        ['React', 11, 'blue'],
-        ['SQL', 15, 'blue'],
-        ['Node.js', 11, 'blue'],
-        ['Docker', 11, 'blue'],
-        ['Angular', 12, 'blue'], 
-        ['Communication', 16, 'green'],
-        ['Teamwork', 15.5, 'green'],
-        ['Problem Solving', 15, 'green'],
+        ['JavaScript', 15, 'blue'],
+        ['Python', 24, 'blue'],
+        ['Git', 24, 'blue'],
+        ['React', 21, 'blue'],
+        ['SQL', 35, 'blue'],
+        ['Node.js', 21, 'blue'],
+        ['Docker', 21, 'blue'],
+        ['Angular', 22, 'blue'], 
+        ['Communication', 36, 'green'],
+        ['Teamwork', 25.5, 'green'],
+        ['Problem Solving', 25, 'green'],
         ['Leadership', 14.5, 'green'],
-        ['Empathy', 16, 'green'],
+        ['Empathy', 36, 'green'],
         ['Conflict Resolution', 12, 'green'],
         ['Time Management', 13, 'green'],
     ],
     technical: [
         ['HTML', 13, 'blue'],
         ['CSS', 13, 'blue'],
-        ['JavaScript', 11, 'blue'],
-        ['Python', 14, 'blue'],
-        ['Git', 14, 'blue'],
-        ['React', 11, 'blue'],
-        ['SQL', 17, 'blue'],
-        ['Node.js', 11, 'blue'],
-        ['Docker', 11, 'blue'],
-        ['Angular', 12, 'blue'],
+        ['JavaScript', 15, 'blue'],
+        ['Python', 24, 'blue'],
+        ['Git', 24, 'blue'],
+        ['React', 21, 'blue'],
+        ['SQL', 35, 'blue'],
+        ['Node.js', 21, 'blue'],
+        ['Docker', 21, 'blue'],
+        ['Angular', 22, 'blue'],
     ],
     interpersonal: [
-        ['Communication', 14, 'green'],
-        ['Teamwork', 15.5, 'green'],
-        ['Problem Solving', 15, 'green'],
+        ['Communication', 36, 'green'],
+        ['Teamwork', 25.5, 'green'],
+        ['Problem Solving', 25, 'green'],
         ['Leadership', 14.5, 'green'],
-        ['Empathy', 16, 'green'],
+        ['Empathy', 35, 'green'],
         ['Conflict Resolution', 12, 'green'],
         ['Time Management', 13, 'green'],
     ],
@@ -141,8 +149,8 @@ if (!canvas) {
 // function to responsiv resizing
 function resizeCanvas() {
     const parentWidth = canvas.parentElement.offsetWidth;
-    canvas.width = parentWidth * 0.95; // Set canvas width to 95% of parent
-    canvas.height = canvas.width * 0.6; // Keep height proportional
+    canvas.width = parentWidth * 0.95; 
+    canvas.height = canvas.width * 0.6; 
 }
 
 // generate word cloud based on selected category

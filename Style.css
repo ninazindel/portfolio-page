@@ -216,6 +216,7 @@ body {
     max-width: 800px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
     text-align: left; 
+    box-sizing: border-box;
 }
 
 .about-list {
@@ -241,6 +242,89 @@ body {
     transform: scale(1.02);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+/* fact banner container */
+
+.fact-banner-container {
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+.fact-banner {
+    width: 95%; 
+    max-width: 800px; 
+    overflow: hidden; 
+    background-color: #3b3b3b; 
+    color: white; 
+    padding: 10px 0; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    margin-top: 20px; 
+}
+
+/* Scrolling Track */
+.fact-track {
+    display: flex; 
+    gap: 50px; 
+    animation: scrollBanner 20s linear infinite; 
+    white-space: nowrap; 
+}
+
+/* Each Fact */
+.fact-track span {
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
+}
+
+/* Scrolling Animation */
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+@media (max-width: 768px) {
+    .about-list-container {
+        padding: 15px; 
+        max-width: 90%; 
+    }
+
+    .fact-banner {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 10px; 
+        gap: 10px; 
+        max-width: 90%; 
+    }
+
+    .fact-item {
+        font-size: 0.9rem; 
+        margin: 5px 0; 
+    }
+}
+@media (max-width: 480px) {
+    .about-list-container {
+        padding: 10px;
+        max-width: 95%; 
+    }
+
+    .fact-banner {
+        flex-direction: column; 
+        align-items: center; 
+        padding: 8px;
+        gap: 8px; 
+    }
+
+    .fact-item {
+        font-size: 0.8rem; 
+    }
+}
+
 
 /* name container */
 #name-container {
@@ -326,75 +410,113 @@ body {
     visibility: hidden;
 }
 
-/* quote container */
-#quote-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #E4E7E1; 
-    color: #1a1a1a; 
-    font-style: italic; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px; 
-    margin: 20px auto; 
+/* fun corner section*/
+#fun-corner {
     text-align: center;
-    font-size: 1.2rem; 
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 20px;
 }
 
-#inspirational-quote {
-    margin: 0; 
-    padding: 0; 
-    line-height: 1.6; 
+/* questionnaire styling */
+#questionnaire {
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
-#new-quote-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
+
+
+#question-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6A7F58; 
+    width: fit-content;
+    margin: 0 auto;
+    white-space: nowrap; 
+    overflow: hidden; 
+    animation: typing 3s steps(30, end);
+}
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+#choices {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#choices button {
     background-color: #6A7F58; 
     color: white;
+    font-size: 1.5rem;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#new-quote-button:hover {
+#choices button:hover {
     background-color: #869C7B; 
-    transform: scale(1.05); 
+    transform: scale(1.1);
 }
 
-/* joke container */
-#joke-container {
-    background-color: #e4f2e7; 
-    border: 2px solid #9BAE92; 
+#content-display {
+    margin-top: 20px;
     padding: 20px;
+    background-color: #E4E7E1; 
+    color: #1a1a1a;
     border-radius: 10px;
-    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
     margin: 20px auto;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#joke-text {
     font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #333;
+    min-height: 100px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#new-joke-btn {
-    background-color: #9BAE92; 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+@media (max-width: 768px) {
+    #question-text {
+        font-size: 1.5rem; 
+        white-space: normal; 
+        text-align: center; 
+    }
+
+    #choices {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    #choices button {
+        width: 100%; 
+        font-size: 1.2rem; 
+        padding: 10px;
+    }
 }
 
-#new-joke-btn:hover {
-    background-color: #869C7B;
-    transform: scale(1.05);
+@media (max-width: 480px) {
+    #question-text {
+        font-size: 1.2rem; 
+        white-space: normal; 
+        text-align: center; 
+    }
 }
 
 /* skills section */
@@ -406,7 +528,41 @@ body {
     margin-bottom: 20px; 
 }
 
-/* word cloud styling */
+
+.tab--active[data-category="all"] {
+    background-color: white; 
+    color: black; 
+}
+
+.tab--active[data-category="technical"] {
+    background-color: steelblue; 
+    color: white; 
+}
+
+.tab--active[data-category="interpersonal"] {
+    background-color: #6A7F58; 
+    color: white; 
+}
+
+/* Default Tab Styling */
+.tab {
+    background-color: #2e2e2e; 
+    color: white; 
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); 
+}
+
+/* Word Cloud Styling */
 #word-cloud {
     width: 95%;
     max-width: 800px;
@@ -418,14 +574,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* responsivness */
+/* Responsiveness */
 @media (max-width: 768px) {
     #word-cloud {
         width: 90%;
         max-width: none;
-    }
-    #map {
-        height: 300px;
     }
 }
 
@@ -433,10 +586,8 @@ body {
     #word-cloud {
         width: 100%;
     }
-    #map {
-        height: 250px;
-    }
 }
+
 
 /* skills sliders section */
 .skills-sliders {
@@ -671,8 +822,7 @@ body {
     box-sizing:border-box;
     background-color: #3b3b3b; 
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
+    padding: 40px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 100%; 
@@ -680,6 +830,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.project-card p {
+    text-align: left; 
+    margin: 10px 20px; 
+    line-height: 1.6; 
+}
+
+/* bullet point styling */
+.project-card ul {
+    margin: 10px 20px; 
+    padding-left: 40px; 
+    list-style-type: disc; 
+    text-align: left; 
+    color: white; 
+   
+}
+
+.project-card li {
+    margin-bottom: 5px; 
+    line-height: 1.6; 
+    font-size: 1rem; 
+}
+
+.project-card li strong {
+    font-weight: bold; 
 }
 
 /* thumbnail styling for images */
@@ -821,6 +997,9 @@ body {
 .contact-info {
     margin-top: 40px;
     text-align: center;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
 }
 
 .contact-info h2 {
@@ -833,6 +1012,9 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
 }
 
 .contact-list li {

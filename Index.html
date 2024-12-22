@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-   <!-- navigation bar -->
+<!-- navigation bar -->
    <nav class="navbar">
     <ul class="nav-links">
         <li><a href="#about-me">ABOUT ME</a></li>
@@ -53,31 +53,45 @@
             <li>✈️  I love traveling and exploring new places whenever possible.</li>
             <li>📈 I'm passionate about self-development and love learning new technologies.</li>
         </ul>
+    </div> 
+    <div class="fact-banner">
+        <div class="fact-track">
+            <span>💙 Favorite colour is blue</span>
+            <span>🌍 Lived in 3 different countries</span>
+            <span>🐘 Favorite animals are elephants</span>
+            <span>📏 Height is 1.65m</span>
+            <span>🍣 Favorite food is sushi</span>
+            <span>✈️ Visited 15+ countries</span>
+            <span>👁️ Eye color is green-grey</span> 
+            <span>🌅 Sunset lover</span>
+        </div>
     </div>
-    <div id="quote-container">
-        <p id="inspirational-quote">Loading inspirational quote...</p>
-    </div>
-    <button id="new-quote-button">Get Another Quote</button>
 </section>
 
+<!-- questionnaire section -->
 <section id="fun-corner" class="section">
-    <h1>Fun Corner</h1>
-    <div id="joke-container">
-        <p id="joke-text">Loading a hilarious joke for you...</p>
-        <button id="new-joke-btn">Get Another Joke</button>
+    <div id="questionnaire">
+        <p id="question-text"></p>
+        <div id="choices">
+            <button id="inspiration-button">Inspiration</button>
+            <button id="cheering-up-button">Cheering Up</button>
+        </div>
+    </div>
+    <div id="content-display">
     </div>
 </section>
 
-    <!-- skills section -->
+
+ <!-- skills section -->
     <section id="skills" class="section section--skills">
         <h1>SKILLS</h1>
-    <!-- tabs for categories -->
-    <div class="tabs">
+<!-- tabs for categories -->
+    <div class="skills-tabs">
         <button class="tab tab--active" data-category="all">All</button>
         <button class="tab" data-category="technical">Technical</button>
         <button class="tab" data-category="interpersonal">Interpersonal</button>
     </div>
-    <!-- canvas for the word cloud -->
+<!-- canvas for the word cloud -->
     <canvas id="word-cloud"></canvas>
 
     <div class="skills-sliders">
@@ -101,22 +115,21 @@
             <h2>Programming Languages</h2>
             <div class="slider">
                 <label>Python <span>Advanced</span></label>
-                <input type="range" value="90" max="100" disabled>
+                <input type="range" value="60" max="100" disabled>
             </div>
             <div class="slider">
-                <label>JavaScript <span>Proficient</span></label>
-                <input type="range" value="80" max="100" disabled>
+                <label>JavaScript <span>Beginner</span></label>
+                <input type="range" value="20" max="100" disabled>
             </div>
             <div class="slider">
-                <label>HTML <span>Expert</span></label>
-                <input type="range" value="100" max="100" disabled>
+                <label>HTML <span>Intermediate</span></label>
+                <input type="range" value="40" max="100" disabled>
             </div>
         </div>
-    </div>
-    
+    </div> 
 </section>
 
-    <!-- education section -->
+<!-- education section -->
     <section id="education" class="section">
         <h1>EDUCATION</h1>
         <p>Here you find my educational journey so far. For more information, have a look at my <a href="path-to-your-cv.pdf" target="_blank" class="cv-link">curriculum vitae</a>.</p>
@@ -181,7 +194,13 @@
         <div class="project-card">
             <img src="images/portfolio image.png" alt="Project 1 Thumbnail" class="project-thumbnail">
             <h2>Portfolio Page</h2>
-            <p>Create your own portfolio website. This page gives information about realized projects and experience in technologies</p>
+            <p> As part of the module EWEB - Web Engineering, I created this website. This portfolio page gives information about me, visualizes my technical and interpersonal skills, 
+                shows the corner stones of my education and my realized projects. </p>
+            <ul>
+                <li><strong>Web Development with Modern Technologies:</strong> Designed and developed a fully responsive portfolio website using HTML, CSS, and JavaScript, showcasing my technical skills and personal achievements.</li>
+                <li><strong>Interactive Features and Animations:</strong> Implemented dynamic elements such as a word cloud, skill tabs, and a questionnaire section with interactive buttons for enhanced user engagement.</li>
+                <li><strong>Deployment and Accessibility:</strong> Deployed the portfolio on GitHub Pages, ensuring cross-browser compatibility and responsiveness across various devices through extensive testing and media queries.</li>
+            </ul>
             <div class="project-links">
                 <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
                     <i class="fab fa-github"></i>
@@ -192,9 +211,12 @@
         <div class="project-card">
             <img src="images/Credit Scoring Model.png" alt="Project 2 Thumbnail" class="project-thumbnail">
             <h2>Credit Scoring Model</h2>
-            <p>As part of the module SBD2 at the Bern University of Applied Sciences, I was assigned the task to build a Credit Scoring Model as part of a group.
-                Goal: Building, evaluating and discussing a credit scoring model.
-                Technologies used: R markdown</p>
+            <p>As part of the module SBD2 - , I was assigned a group project to build a Credit Scoring Model.</p>
+            <ul>
+                <li><strong>Data Analysis and Feature Engineering: </strong>Analyzed customer datasets to extract relevant features influencing creditworthiness, ensuring high-quality input for the scoring model.</li>
+                <li><strong>Model Development and Evaluation:</strong> Designed and tested a credit scoring model using logistic regression, evaluating its performance through accuracy, precision, and recall metrics.</li>
+                <li><strong>Documentation and Presentation:</strong> Compiled results into an R Markdown report with visualizations, and presented findings along with model implications to stakeholders.</li>
+            </ul>
             <div class="project-links">
                 <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
                     <i class="fab fa-github"></i>
@@ -205,7 +227,12 @@
         <div class="project-card">
             <i class="fas fa-video video-camera-icon"></i>
             <h2>Confrontation with Fear</h2>
-            <p>As part of the module WKOM, I had to do a persuasive speech in video format.</p>
+            <p>As part of the module WKOM - Business Communication, I created a short video about the topic "Confrontation with Fear".</p>
+            <ul>
+                <li><strong>Screenwriting:</strong> Developed a detailed screenplay, outlining key arguments, examples, and personal reflections to create a compelling narrative.</li>
+                <li><strong>Video Production:</strong> Filmed and directed the video, ensuring proper lighting, framing, and sound quality to enhance the viewer's experience.</li>
+                <li><strong>Post-Production:</strong> Edited the video using video editing software to create a polished final product, including transitions, captions, and background music for greater impact.</li>
+            </ul>
             <video controls width="100%">
                 <source src="videos/confrontation with fear.MP4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -230,7 +257,7 @@
         <button type="submit">Send</button>
     </form>
 
-    <!-- alternative contact information -->
+<!-- alternative contact information -->
     <div class="contact-info">
         <h2>Alternatively, you can reach me at:</h2>
     <ul class="contact-list">
