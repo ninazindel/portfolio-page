@@ -4,17 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const verticalMenu = document.querySelector('.vertical-menu');
     const menuOverlay = document.createElement('div'); 
 
-    // add class and append overlay to the body
     menuOverlay.className = 'menu-overlay';
     document.body.appendChild(menuOverlay);
 
-    // function to toggle the menu
     menuToggle.addEventListener('click', () => {
         verticalMenu.classList.toggle('show-menu');
         menuOverlay.classList.toggle('show-overlay'); 
     });
 
-    // function to hide the menu after clicking a link
     document.querySelectorAll('.vertical-menu a').forEach(link => {
         link.addEventListener('click', () => {
             verticalMenu.classList.remove('show-menu');
@@ -22,13 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // function to hide the menu when clicking outside 
     menuOverlay.addEventListener('click', () => {
         verticalMenu.classList.remove('show-menu');
         menuOverlay.classList.remove('show-overlay'); 
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const factTrack = document.querySelector(".fact-track");
+    const facts = Array.from(factTrack.children);
+
+    facts.forEach(fact => {
+        const clone = fact.cloneNode(true);
+        factTrack.appendChild(clone);
+    });
+});
+
+// questionnaire section
 document.addEventListener("DOMContentLoaded", () => {
     const questionText = document.getElementById("question-text");
 
@@ -41,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (index < question.length) {
             questionText.textContent += question[index];
             index++;
-            setTimeout(typeText, 50); // Adjust typing speed
+            setTimeout(typeText, 50); 
         }
     }
 
@@ -74,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const randomBackupQuote = backupQuotes[Math.floor(Math.random() * backupQuotes.length)];
             contentDisplay.textContent = randomBackupQuote;
         }
+        contentDisplay.style.display = "block";
     }
 
     // function to fetch and display a random joke
@@ -86,15 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             contentDisplay.textContent = "Failed to fetch a joke. Please try again.";
         }
+        contentDisplay.style.display = "block";
     }
 
     inspirationButton.addEventListener("click", fetchRandomQuote);
     cheeringUpButton.addEventListener("click", fetchJoke);
 });
 
-
 // word cloud data and categories
-
 const wordLists = {
     all: [
         ['HTML', 13, 'steelblue'],
@@ -194,3 +201,30 @@ window.addEventListener('resize', () => {
 });
 
 generateWordCloud('all');
+
+// contact me form with backend (EmailJS API)
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+
+    notification.className = type === 'success' ? 'show' : 'show error';
+
+    setTimeout(() => {
+        notification.className = ''; 
+    }, 3000);
+}
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    emailjs.init('_tAdeNerFJDkYlhAR'); 
+
+    emailjs.sendForm('service_r0s2bdr', 'template_7vmjhq2', this)
+        .then(function () {
+            showNotification('Message sent successfully!', 'success');
+        }, function (error) {
+            console.error('Failed to send email:', error);
+            showNotification('Failed to send message. Please try again.', 'error');
+        });
+});
+

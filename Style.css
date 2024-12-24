@@ -148,30 +148,17 @@ body {
 
 /* section title styling */
 .section h1 {
-    font-size: 3rem; 
+    font-size: clamp(1rem, 5vw, 3rem); 
     color: #6A7F58; 
     font-weight: bold; 
     text-align: center; 
     margin-bottom: 20px; 
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease; 
 }
 
 .section h1:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); 
     color: #869C7B; 
-}
-
-/* responsivness */
-@media (max-width: 768px) {
-    .section h1 {
-        font-size: 2rem; 
-    }
-}
-
-@media (max-width: 480px) {
-    .section h1 {
-        font-size: 1.5rem; 
-    }
 }
 
 /* about me section */
@@ -263,25 +250,22 @@ body {
     margin-top: 20px; 
 }
 
-/* Scrolling Track */
 .fact-track {
-    display: flex; 
+    display: inline-flex; 
     gap: 50px; 
-    animation: scrollBanner 20s linear infinite; 
+    animation: scrollBanner 50s linear infinite; 
     white-space: nowrap; 
 }
 
-/* Each Fact */
 .fact-track span {
     font-size: 1.2rem; 
     font-weight: bold; 
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
 }
 
-/* Scrolling Animation */
 @keyframes scrollBanner {
     0% {
-        transform: translateX(100%); 
+        transform: translateX(0); 
     }
     100% {
         transform: translateX(-100%); 
@@ -324,7 +308,6 @@ body {
         font-size: 0.8rem; 
     }
 }
-
 
 /* name container */
 #name-container {
@@ -430,7 +413,6 @@ body {
     gap: 20px;
 }
 
-
 #question-text {
     font-size: 2rem;
     font-weight: bold;
@@ -441,7 +423,6 @@ body {
     overflow: hidden; 
     animation: typing 3s steps(30, end);
 }
-
 
 @keyframes typing {
     from {
@@ -520,15 +501,6 @@ body {
 }
 
 /* skills section */
-.section--skills h1 {
-    font-size: 3rem; 
-    color: #6A7F58; 
-    font-weight: bold; 
-    text-align: center; 
-    margin-bottom: 20px; 
-}
-
-
 .tab--active[data-category="all"] {
     background-color: white; 
     color: black; 
@@ -665,27 +637,20 @@ body {
     padding: 50px 20px;
 }
 
-#education h1 {
-    font-size: 3rem;
-    color: #6A7F58; 
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 #education p {
     color: #ccc;
     margin-bottom: 30px;
 }
 
 .cv-link {
-    color: white; 
+    color: #6A7F58; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .cv-link:hover {
-    color: white;
+    color: darkred;
 }
 
 /* timeline styling */
@@ -878,7 +843,6 @@ body {
     transform: scale(1.1); 
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
 
 /* styling for video */
 .project-card video {

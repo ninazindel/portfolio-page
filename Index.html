@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="Style.css">
+
     <!-- word cloud link -->
     <script src="js/wordcloud2.js" defer></script>
     <script src="script.js" defer></script>
+
+    <!-- Email JS link -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <!-- font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -60,14 +65,14 @@
     <div class="fact-banner-container">
         <div class="fact-banner">
             <div class="fact-track"> 
-                <span>💙 Favorite colour is blue</span>
-                <span>🌍 Lived in 3 different countries</span>
-                <span>🐘 Favorite animals are elephants</span>
-                <span>📏 Height is 1.65m</span>
-                <span>🍣 Favorite food is sushi</span>
-                <span>✈️ Visited 15+ countries</span>
-                <span>👁️ Eye color is green-grey</span> 
-                <span>🌅 Sunset lover</span>
+                <span>💙 my favorite colour is blue</span>
+                <span>🌍 I lived in 3 different countries</span>
+                <span>🐘 my favorite animals are elephants</span>
+                <span>📏 my height is 1.65m</span>
+                <span>🍣 my favorite food is sushi</span>
+                <span>✈️ I visited 25+ countries</span>
+                <span>👁️ my eye color is green-grey</span> 
+                <span>🌅 I am a sunset lover</span>
             </div>
         </div>
     </div>
@@ -82,7 +87,7 @@
             <button id="cheering-up-button">Cheering Up</button>
         </div>
     </div>
-    <div id="content-display">
+    <div id="content-display" style="display: none;">
     </div>
 </section>
 
@@ -136,7 +141,7 @@
 <!-- education section -->
     <section id="education" class="section">
         <h1>EDUCATION</h1>
-        <p>Here you find my educational journey so far. For more information, have a look at my <a href="path-to-your-cv.pdf" target="_blank" class="cv-link">curriculum vitae</a>.</p>
+        <p>Here you find my educational journey so far. For more information, have a look at my <a href="documents/CV_Nina Zindel.pdf" target="_blank" class="cv-link">curriculum vitae</a>.</p>
         
         <div class="timeline">
             <div class="timeline-item">
@@ -206,7 +211,7 @@
                 <li><strong>Deployment and Accessibility:</strong> Deployed the portfolio on GitHub Pages, ensuring cross-browser compatibility and responsiveness across various devices through extensive testing and media queries.</li>
             </ul>
             <div class="project-links">
-                <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
+                <a href="https://github.com/ninazindel/portfolio-page" target="_blank" class="github-button">
                     <i class="fab fa-github"></i>
                 </a>
             </div> 
@@ -215,14 +220,14 @@
         <div class="project-card">
             <img src="images/Credit Scoring Model.png" alt="Project 2 Thumbnail" class="project-thumbnail">
             <h2>Credit Scoring Model</h2>
-            <p>As part of the module SBD2 - , I was assigned a group project to build a Credit Scoring Model.</p>
+            <p>As part of the module SBD2 - Data-Driven Visualization for Decision Making , I was assigned a group project to build a Credit Scoring Model in R Studio.</p>
             <ul>
                 <li><strong>Data Analysis and Feature Engineering: </strong>Analyzed customer datasets to extract relevant features influencing creditworthiness, ensuring high-quality input for the scoring model.</li>
                 <li><strong>Model Development and Evaluation:</strong> Designed and tested a credit scoring model using logistic regression, evaluating its performance through accuracy, precision, and recall metrics.</li>
                 <li><strong>Documentation and Presentation:</strong> Compiled results into an R Markdown report with visualizations, and presented findings along with model implications to stakeholders.</li>
             </ul>
             <div class="project-links">
-                <a href="https://github.com/your-repo/project1" target="_blank" class="github-button">
+                <a href="https://github.com/ninazindel/SBD2_Group5" target="_blank" class="github-button">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -245,6 +250,7 @@
     </div>
 </section>
 
+<!-- contact me section -->
 <section id="contact-me" class="section">
     <h1>CONTACT ME</h1>
     <p>If you'd like to get in touch, please fill out the form below:</p>
@@ -260,6 +266,8 @@
 
         <button type="submit">Send</button>
     </form>
+
+    <div id="notification" class="hidden"></div>
 
 <!-- alternative contact information -->
     <div class="contact-info">
