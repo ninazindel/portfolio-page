@@ -544,7 +544,6 @@ body {
     color: white; 
 }
 
-/* Default Tab Styling */
 .tab {
     background-color: #2e2e2e; 
     color: white; 
@@ -562,7 +561,7 @@ body {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); 
 }
 
-/* Word Cloud Styling */
+/* word cloud styling */
 #word-cloud {
     width: 95%;
     max-width: 800px;
@@ -574,7 +573,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsiveness */
+/* responsiveness */
 @media (max-width: 768px) {
     #word-cloud {
         width: 90%;
